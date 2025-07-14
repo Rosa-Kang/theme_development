@@ -1,0 +1,52 @@
+/*--------------------------------------------------------------
+# Page Templates
+--------------------------------------------------------------*/
+
+// Blog/News Posts --------------------------
+.single-post {
+  article {
+    margin: 0 auto;
+
+    @include bp($mobile__menu-bp) {
+      padding-bottom: $space-unit--s * 5;
+    }
+  }
+
+  .wp-block-image,
+  .wp-block-image .aligncenter,
+  .wp-block-image .alignleft,
+  .wp-block-image .alignright,
+  .wp-block-image.is-resized {
+    @include col-cen();
+  }
+
+  figure {
+    padding: $space-unit--s 0;
+    margin: 0 auto;
+  }
+}
+
+// 404 Page ----------------------
+.error-404 {
+  min-height: 66vh;
+  height: 100%;
+  @include col-cen();
+
+  .page-content {
+    div:first-of-type > a {
+      margin: 0 auto;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// Privacy Policy -----------------------------
+.privacy-policy {
+  .entry-content {
+    h2,
+    h3,
+    h4 {
+      text-align: left;
+    }
+  }
+}

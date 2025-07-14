@@ -1,0 +1,95 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+assets/css/
+assets/js/
+
+# Sass cache
+.sass-cache/
+*.css.map
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
+logs/
+debug.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Environment configuration files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# PHP related
+vendor/
+*.cache
+
+# WordPress specific
+wp-config.php
+wp-content/uploads/
+
+# Development tools
+.stylelintcache
+.eslintcache
+
+# Upload files (typically user upload directories)
+uploads/
+images/user/
+files/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Database files
+*.sql
+*.sqlite
+*.db
+
+# Configuration files (may contain sensitive information)
+config/database.php
+config/config.php
+
+# Cache directories
+cache/
+tmp/
+
+# Compressed files
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Document temporary files
+~$*
+
+# Miscellaneous
+.htaccess.bak
+error_log

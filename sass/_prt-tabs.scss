@@ -1,0 +1,71 @@
+/*--------------------------------------------------------------
+# Tabs
+--------------------------------------------------------------*/
+
+.contact-form-tabs {
+  position: relative;
+
+  .seeds-lg-r {
+    position: absolute;
+    z-index: 2;
+    top: -5.5rem;
+    right: $space-unit--s;
+
+    @include bp(desktop-1024) {
+      right: $space-unit--xxl;
+      top: -$space-unit--xxxl * 1.6;
+    }
+
+    @include bp(desktop-1920) {
+      right: $space-unit--xxxl;
+    }
+  }
+
+  .tabs {
+    li a p.button.is-dark,
+    li.is-active a p.button.is-dark {
+      min-width: 100% !important;
+    }
+
+    li.is-active a p.button.is-dark,
+    li.is-active a p.button.is-dark:hover {
+      background: $color__dark !important;
+      color: $color__light !important;
+    }
+
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+      border-bottom: none !important;
+    }
+
+    li.is-active a p.button.is-dark {
+      background: $color__dark !important;
+      color: $color__light !important;
+    }
+
+    li.is-active a,
+    a {
+      border-bottom: none !important;
+    }
+
+    li:first-of-type {
+      @include bp(tablet) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  .tabs-content li[data-content] {
+    display: none;
+
+    ul,
+    ol {
+      margin-bottom: $base__space-unit;
+    }
+  }
+
+  .tabs-content li[data-content].is-active {
+    display: block;
+  }
+}

@@ -1,0 +1,104 @@
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+
+/* Posts and pages */
+
+.sticky {
+  display: block;
+}
+
+.hentry {
+  margin: 0 0 $base__space-unit;
+}
+
+.updated:not(.published) {
+  display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+  display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: $base__space-unit 0 0;
+}
+
+.page-links {
+  clear: both;
+  margin: 0 0 $base__space-unit;
+}
+
+.entry-content {
+  h2,
+  h3 {
+    margin: $space-unit--lg 0 $base__space-unit;
+    text-align: left;
+  }
+
+  li {
+    line-height: 1;
+    margin: $space-unit--s $base__space-unit $space-unit--xs $space-unit--xl;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  figure.wp-block-pullquote {
+    padding-bottom: 0;
+
+    blockquote {
+      margin: 0;
+    }
+  }
+}
+
+/* Pagination */
+.numeric-pagination li a,
+.numeric-pagination li a:hover,
+.numeric-pagination li.active a,
+.numeric-pagination li.disabled {
+  text-decoration: none;
+}
+
+.numeric-pagination li {
+  display: inline;
+}
+
+.numeric-pagination li a,
+.numeric-pagination li a:hover,
+.numeric-pagination li.active a,
+.numeric-pagination li.disabled {
+  cursor: pointer;
+  padding: $space-unit--xxs;
+}
+
+.numeric-pagination li a:hover,
+.numeric-pagination li.active a {
+  color: $color__primary;
+}
+
+li.numeric-pagination-links a {
+  font-size: 40px;
+}
+
+/* Asides */
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none;
+}
+
+/* Comments */
+
+.comment-content a {
+  word-wrap: break-word;
+}
+
+.bypostauthor {
+  display: block;
+}

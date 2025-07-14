@@ -1,0 +1,410 @@
+/*--------------------------------------------------------------
+# Slider
+--------------------------------------------------------------*/
+// Best Sellers Slider
+.swiper {
+  overflow: hidden;
+}
+
+.best-sellers-image img{
+  border: 1px solid $color__success-dark;
+  transition: $transition;
+}
+
+.swiper-slide:nth-child( even ){
+  img{
+    border-radius: 390px 280px 410px 281px;
+  }
+
+  &:hover{
+    img {
+      border-radius: 501px 337px 384px 496px;
+    }
+  }
+}
+.swiper-slide:nth-child( odd ){
+  img{
+    border-radius: 281px 390px 280px 410px;
+  }
+  
+    &:hover{
+      img {
+        border-radius: 427px 333px 386px 441px;
+      }
+    }
+}
+
+// Slider Arrows ----------------
+.swiper-button-prev,
+.swiper-button-next {
+  width: 35px !important;
+  height: 64px !important;
+  background-size: 35px 64px !important;
+  z-index: 3 !important;
+}
+
+.swiper-button-next-dark {
+  background-image: url(../../assets/images/arrow-next.svg) !important;
+  transition: $transition;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.swiper-button-prev-dark {
+  background-image: url(../../assets/images/arrow-prev.svg) !important;
+  transition: $transition;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+// Hero Slider --------------
+.hero-slider {
+  &.content-wrapper {
+    padding-top: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .hero-content-wrapper {
+    @include bp(desktop-1024) {
+      max-width: 450px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  .swiper-container {
+    border-radius: 281px 390px 280px 410px;
+    border: 1px solid $color__success-dark;
+
+    @include bp($mobile__menu-bp) {
+      margin: auto 2.8rem;
+    }
+  }
+
+  .columns {
+    @include bp(tablet) {
+      flex-direction: row-reverse !important;
+    }
+  }
+}
+
+// Services Slider ----------------
+.slider-services {
+  .video-wrapper {
+    text-align: center;
+    margin-bottom: $space-unit--xxxl;
+
+    @include bp(tablet) {
+      text-align: right;
+      margin: $base__space-unit 0 0;
+    }
+  }
+
+  .servicesSwiper {
+    position: relative;
+
+    .card {
+      width: 257px !important;
+      height: 257px;
+
+      .card-content {
+        height: 40%;
+      }
+    }
+
+    figure img {
+      margin: auto;
+      height: 90px;
+      width: auto;
+    }
+
+    li.swiper-slide {
+      width: 257px !important;
+      height: 257px !important;
+    }
+
+    li.swiper-slide.swiper-slide-duplicate {
+      width: 257px !important;
+      height: 257px !important;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    margin-top: 0px !important;
+    bottom: 37px !important;
+    top: unset !important;
+
+    @include bp(tablet) {
+      bottom: 29px !important;
+    }
+
+    @include bp(desktop-1920) {
+      bottom: 59px !important;
+    }
+  }
+
+  .swiper-button-next {
+    @include bp(tablet) {
+      right: 41px !important;
+      left: auto !important;
+    }
+
+    @include bp(desktop-1920) {
+      right: 72px !important;
+    }
+  }
+
+  .swiper-button-prev {
+    right: 75px !important;
+    left: auto !important;
+
+    @include bp(tablet) {
+      right: 106px !important;
+    }
+
+    @include bp(desktop-1920) {
+      right: 137px !important;
+    }
+  }
+}
+
+.home {
+  .slider-services {
+    .servicesSwiper {
+      margin-top: 5rem !important;
+
+      @include bp(tablet) {
+        margin-top: $space-unit--s !important;
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      margin-top: 0px !important;
+      bottom: -$space-unit--xxl * 1.2 !important;
+      top: unset !important;
+
+      @include bp(tablet) {
+        bottom: 0 !important;
+      }
+    }
+  }
+}
+
+// Hide extra youtube stuff
+.hytPlayerWrap {
+  display: inline-block;
+  position: relative;
+}
+.hytPlayerWrap.ended::after {
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 64px 64px;
+  background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==);
+}
+.hytPlayerWrap.paused::after {
+  content:"";
+  position: absolute;
+  top: 70px;
+  left: 0;
+  bottom: 50px;
+  right: 0;
+  cursor: pointer;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px 40px;
+  background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
+}
+
+// Testimonial Slider ---------------
+.slider-testimonial {
+  .testimonial-wrapper {
+    position: relative;
+
+    .swiper-slide {
+      overflow: hidden;
+
+      .card {
+        background-color: transparent !important;
+
+        .card-content {
+          @include bp(tablet) {
+            padding: 0 $base__space-unit $base__space-unit !important;
+          }
+        }
+      }
+
+      .subtitle {
+        @include bp(tablet) {
+          text-align: right !important;
+        }
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: -45px !important;
+
+      @include bp(tablet) {
+        top: 45% !important;
+      }
+    }
+
+    .swiper-button-prev {
+      left: unset !important;
+      right: 75px !important;
+      @include bp(tablet) {
+        left: -20px !important;
+      }
+    }
+
+    .swiper-button-next {
+      right: 12px !important;
+
+      @include bp(tablet) {
+        right: -20px !important;
+      }
+    }
+  }
+}
+
+
+// Posts Slider ---------------
+.cards-recent-posts {
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 205px !important;
+
+    @media (min-width: 400px) {
+      top: 122px !important;
+    }
+
+    @include bp(tablet) {
+      top: 139px !important;
+    }
+
+    @include bp(desktop-1024) {
+      display: none !important;
+    }
+  }
+
+  .swiper-button-prev {
+    left: unset !important;
+    right: 86px !important;
+
+    @include bp(tablet) {
+      right: 101px !important;
+    }
+  }
+
+  .swiper-button-next {
+    right: 23px !important;
+
+    @include bp(tablet) {
+      right: 38px !important;
+    }
+  }
+}
+
+// Gallery Slider --------------
+.gallery {
+  figure img {
+    object-fit: cover;
+  }
+
+  .is-flex {
+    position: relative;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: -3.5rem;
+
+      @include bp(tablet) {
+        top: -$space-unit--xxl;
+      }
+
+      @include bp(desktop-1920) {
+        top: -6.6rem;
+      }
+    }
+  }
+
+  .swiper-button-next {
+    right: 41px;
+
+    @include bp(desktop-1920) {
+      right: 71px;
+    }
+  }
+
+  .swiper-button-prev {
+    left: unset;
+    right: 104px;
+
+    @include bp(desktop-1920) {
+      right: 134px;
+    }
+  }
+}
+
+.page-template-page-video-library .gallery {
+  margin-bottom: $space-unit--xxl;
+
+  @include bp(desktop-1024) {
+    margin-bottom: $space-unit--xxxl + $base__space-unit;
+  }
+}
+
+// Pagination Bullets -------------
+.swiper-pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  z-index: 3 !important;
+
+  @include bp(tablet) {
+    display: flex;
+    flex-direction: row;
+    width: unset !important;
+    margin-bottom: 0 !important;
+    margin-top: unset !important;
+    right: unset !important;
+    justify-content: center;
+  }
+
+  @include bp(desktop-1024) {
+    transform: translateY(-35%) !important;
+  }
+}
+
+span.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border: 1px solid $color__success-dark;
+  opacity: 1 !important;
+  margin: 0px 9px !important;
+  background: transparent;
+
+  @include bp(tablet) {
+    margin: 12px 9px !important;
+  }
+}
+
+span.swiper-pagination-bullet-active{
+  background: rgba(230, 220, 214, 0.5);
+}

@@ -1,0 +1,155 @@
+/*--------------------------------------------------------------
+# Buttons - Tailwind CSS Version
+--------------------------------------------------------------*/
+
+// Tailwind Component Layer
+@layer components {
+  
+  // Primary Buttons
+  .primary-button {
+    @apply w-[270px] h-[45px] flex flex-row items-center justify-center;
+    @apply bg-success text-dark border border-dark;
+    @apply text-lg transition-all duration-300 ease-in-out;
+    
+    &:hover {
+      @apply bg-success-dark cursor-pointer;
+      
+      a {
+        @apply text-light;
+      }
+    }
+  }
+
+  // Menu Buttons Container
+  #menu-buttons-menu {
+    @apply flex flex-row justify-between items-center w-[220px];
+  }
+
+  // Individual Menu Button
+  .menu-button {
+    @apply flex flex-row items-center justify-center h-[45px];
+    @apply bg-dark text-lg border border-dark my-2 mx-auto;
+    @apply transition-all duration-300 ease-in-out;
+    
+    @screen desktop-1216 {
+      @apply w-auto m-0;
+    }
+    
+    a {
+      @apply text-light leading-none whitespace-nowrap;
+    }
+    
+    &:hover {
+      @apply bg-success cursor-pointer;
+      
+      a {
+        @apply text-dark;
+      }
+    }
+  }
+
+  // Desktop Menu Buttons
+  .desktop-menu-btn {
+    a,
+    a:visited {
+      @apply bg-success-dark text-light w-[130px] h-[33px];
+      @apply flex items-center justify-center rounded shadow-btn;
+    }
+    
+    a:hover {
+      @apply bg-success;
+    }
+  }
+
+  // Callout Buttons
+  .cta-btn-wrapper {
+    @apply text-center;
+    
+    @screen md {
+      @apply text-left;
+    }
+  }
+
+  // Flex Buttons
+  .rates-btns-wrapper {
+    @apply flex flex-col items-center;
+    
+    a.has-text-primary {
+      @apply pt-unit;
+      
+      @screen md {
+        @apply pt-0;
+      }
+    }
+    
+    @screen md {
+      @apply flex-row justify-between;
+    }
+  }
+
+  // Disabled Button
+  .button.disabled {
+    @apply border border-info-dark text-info-dark text-lg rounded-full;
+    
+    &:hover {
+      @apply bg-transparent cursor-not-allowed;
+    }
+  }
+
+  // Form Buttons
+  div.wpforms-container-full .wpforms-form button[type='submit'],
+  .button {
+    @apply font-main uppercase bg-transparent min-w-[212px] mt-unit-xs;
+  }
+
+  // Buttons Wrapper
+  .buttons-wrapper {
+    @apply flex flex-col items-center justify-center;
+    
+    @screen md {
+      @apply flex-row;
+    }
+    
+    div:last-child {
+      a {
+        @apply mt-unit;
+        
+        @screen md {
+          @apply mt-0 ml-unit-lg;
+        }
+      }
+    }
+  }
+
+  // Button style
+  .btn-primary {
+    @apply bg-primary text-primary-invert px-4 py-2 rounded;
+    @apply hover:bg-primary-dark transition-all duration-300 ease-in-out;
+  }
+  
+  .btn-secondary {
+    @apply bg-success text-dark px-4 py-2 rounded;
+    @apply hover:bg-success-dark hover:text-light transition-all duration-300 ease-in-out;
+  }
+  
+  .btn-info {
+    @apply bg-info text-light px-4 py-2 rounded;
+    @apply hover:bg-info-dark transition-all duration-300 ease-in-out;
+  }
+  
+  .btn-warning {
+    @apply bg-warning text-dark px-4 py-2 rounded;
+    @apply hover:bg-warning-light transition-all duration-300 ease-in-out;
+  }
+}
+
+// utility class
+@layer utilities {
+  .btn-shadow {
+    @apply shadow-btn;
+  }
+  
+  .btn-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}

@@ -1,0 +1,451 @@
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+body,
+button,
+input,
+select,
+textarea {
+  color: $color__text-main;
+  font-family: $font__main;
+  @include font-size(1);
+  line-height: $font__line-height-body;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+}
+
+/* Copy */
+
+p {
+  margin-bottom: $base__space-unit;
+}
+
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+
+blockquote {
+  margin: $space-unit--lg 0;
+}
+
+address {
+  margin: 0 0 $base__space-unit;
+}
+
+pre {
+  background: $color__background-pre;
+  font-family: $font__pre;
+  @include font-size(0.9375);
+  line-height: $font__line-height-pre;
+  margin-bottom: 1.6rem;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6rem;
+}
+
+code,
+kbd,
+tt,
+var {
+  font-family: $font__code;
+  @include font-size(0.9375);
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted $color__border-abbr;
+  cursor: help;
+}
+
+mark,
+ins {
+  background: $color__background-ins;
+  text-decoration: none;
+}
+
+big {
+  font-size: 125%;
+}
+
+/**
+ * Google Fonts Example
+ * font-family: 'Lobster', cursive;
+ * font-family: 'Lobster Two', cursive;
+ * font-family: 'Luckiest Guy', cursive;
+*/
+
+// Custom Fonts -----------------------------
+
+p.has-primary-underline {
+  color: $color__primary;
+  text-decoration: underline 1px $color__primary;
+}
+
+.header-2,
+h1,
+h2,
+h3 {
+  @include font($font__bold, normal, $font__weight-normal);
+}
+
+h1 {
+  color: $color__dark;
+  font-size: 60px;
+  line-height: 65px;
+  font-family: $font__accent;
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
+h2,
+.content h2 {
+  color: $color__dark;
+  font-size: 35px;
+  line-height: 45px;
+  font-family: $font__accent;
+  font-weight: $font__weight-normal;
+}
+
+h2.is-family-secondary {
+  font-size: 60px;
+  line-height: 1;
+
+  @include bp($mobile__bp) {
+    font-size: 70px;
+    line-height: 84px;
+  }
+}
+
+.subtitle,
+.blog h3.subtitle,
+blockquote p {
+  color: $color__primary;
+  font-family: $font__bold !important;
+  font-size: 85px !important;
+  line-height: 1.25 !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1;
+}
+
+blockquote p {
+  color: $color__primary !important;
+}
+
+p.is-family-primary.subtitle,
+h2.is-family-primary.subtitle {
+  font-family: $font__main !important;
+  font-size: 16px !important;
+  line-height: 25px !important;
+  text-transform: uppercase;
+  font-weight: $font__weight-normal;
+  background-color: $color__primary-light;
+  padding: 0 $space-unit--xxs;
+  display: inline-block;
+}
+
+h3,
+.content h3,
+.numeric-pagination li a,
+.faq-title {
+  color: $color__dark;
+  font-family: $font__accent;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: $font__weight-normal;
+}
+
+h3.is-family-secondary {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+
+  @include bp($mobile__bp) {
+    font-size: 66px;
+    letter-spacing: 0;
+  }
+}
+
+h4 {
+  font-family: $font__main;
+  font-size: 16px;
+  line-height: 25px;
+  text-transform: uppercase;
+}
+
+h4.is-family-secondary {
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.entry-meta {
+  color: $color__dark;
+  font-size: 18px;
+  line-height: 23px;
+
+  @include bp($mobile__bp) {
+    font-size: 26px;
+    line-height: 33px;
+  }
+}
+
+p,
+li {
+  @include font($font__main, normal, $font__weight-normal);
+}
+
+p,
+li {
+  color: $color__dark;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+p.subtitle.has-text-dark {
+  font-size: 55px !important;
+}
+
+li {
+  line-height: 2.5;
+}
+
+a.has-text-dark:hover {
+  color: $color__primary !important;
+  text-decoration: underline;
+}
+
+.mice-type {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.intro p.subtitle {
+  position: relative;
+  left: -15px;
+
+  @include bp(tablet) {
+    left: -35px;
+  }
+}
+
+.directions-text {
+  margin: $space-unit--lg 0 $space-unit--lg * 0.75 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: $color__primary !important;
+  }
+
+  &::before {
+    content: '';
+    display: inline-flex;
+    background: url(../../assets/images/icon-location-pin.svg) center / contain
+      no-repeat;
+    width: 13px;
+    height: 16px;
+    margin-right: 0.25rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.single-workshop {
+  .directions-text {
+    justify-content: flex-start;
+  }
+
+  li {
+    line-height: 25px;
+  }
+}
+
+.page-template-page-service .intro p.subtitle {
+  padding: 1rem 0 0.5rem 0.75rem;
+}
+
+// Single Posts -----------------------------------
+.single-post {
+  .wp-block-pullquote {
+    text-align: center;
+    margin-bottom: $base__space-unit;
+
+    p {
+      font-family: $font__bold;
+      font-size: 20px;
+      line-height: 1.5;
+      color: $color__primary;
+      text-rendering: optimizeLegibility;
+      -webkit-font-feature-settings: "kern" 1;
+    }
+
+    cite {
+      color: $color__primary;
+      text-align: center;
+    }
+
+    cite::before {
+      content: '- ';
+    }
+  }
+
+  .wp-block-quote {
+    border-left: solid 5px $color__primary;
+
+    p {
+      font-family: $font__main !important;
+      font-size: 20px !important;
+      color: $color__dark !important;
+      line-height: 1.5 !important;
+      padding-left: $base__space-unit !important;
+    }
+  }
+
+  figure {
+    text-align: center;
+
+    figcaption {
+      color: $color__primary;
+      font-size: 15px;
+    }
+  }
+}
+
+// Background Variations -----------
+.has-background-dark {
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  ol,
+  span {
+    color: $color__light;
+  }
+
+  a,
+  a:visited {
+    color: $color__light;
+
+    &:hover {
+      color: $color__primary;
+
+      svg,
+      .social-icon {
+        fill: $color__primary;
+      }
+    }
+
+    .social-icon {
+      width: 20px;
+      fill: $color__light;
+      transition: $transition;
+    }
+  }
+}
+
+.has-background-success {
+  .subtitle {
+    color: $color__success-dark;
+  }
+
+  .is-family-primary.subtitle {
+    color: $color__light;
+    background: $color__success-dark;
+  }
+}
+
+// Navigation ----------------------------
+#mobile-menu li a {
+  color: $color__dark;
+  font-family: $font__main;
+  font-size: 16px;
+  line-height: 25px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $color__primary;
+  }
+}
+
+#menu-social-mobile-menu li a {
+  color: $color__primary;
+  font-size: 19px;
+  line-height: 26px;
+
+  &:hover {
+    color: $color__success;
+  }
+}
+
+#primary-menu li a {
+  color: $color__dark;
+  font-family: $font__main;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: $font__weight-normal;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $color__primary;
+  }
+}
+
+#menu-social-menu li a {
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: initial;
+}
+
+.contact-menu a {
+  font-weight: $font__weight-semibold;
+}
+
+.sub-menu li a {
+  text-transform: capitalize !important;
+  line-height: 18px !important;
+}
+
+// Footer -----------------------------------
+footer p.is-underlined {
+  text-underline-offset: 3px;
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 19px;
+  white-space: nowrap;
+
+  @include bp(tablet) {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+.privacy-terms-wrapper,
+.copyright-wrapper {
+  .footer-text,
+  li,
+  a {
+    font-size: 12px;
+    line-height: 1;
+  }
+}

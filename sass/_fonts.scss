@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+# Embedded Fonts
+--------------------------------------------------------------*/
+
+@font-face {
+  font-family: 'CaliforniaPalms-Script';
+  src: url('../../assets/fonts/CaliforniaPalms_Script_thicker.eot');
+  src: url('../../assets/fonts/CaliforniaPalms_Script_thicker.woff')
+      format('woff'),
+    url('../../assets/fonts/CaliforniaPalms_Script_thicker.ttf')
+      format('truetype');
+  font-weight: $font__weight-normal;
+  font-style: normal;
+  font-display: swap;
+}

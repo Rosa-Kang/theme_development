@@ -1,0 +1,197 @@
+/*--------------------------------------------------------------
+# Tailwind Custom Components
+--------------------------------------------------------------*/
+
+@layer components {
+  
+  // Content List Style
+  .content ul {
+    @apply ml-5;
+  }
+  
+  // Container Style
+  .container-custom {
+    @apply max-w-container mx-auto px-4;
+    
+    &.is-small {
+      @apply max-w-container-sm;
+    }
+    
+    &.is-medium {
+      @apply max-w-container-m;
+    }
+  }
+  
+  // Card Style
+  .card-custom {
+    @apply bg-white rounded-none shadow-card;
+  }
+  
+  // Modal Style
+  .modal-custom {
+    @apply z-[9999];
+    
+    .modal-background {
+      background-color: var(--color-overlay);
+    }
+  }
+  
+  // Typography Style
+  .title {
+    @apply font-accent font-bold text-dark;
+    
+    &.is-1 {
+      @apply text-6xl;
+    }
+    &.is-2 {
+      @apply text-5xl;
+    }
+    &.is-3 {
+      @apply text-4xl;
+    }
+    &.is-4 {
+      @apply text-3xl;
+    }
+    &.is-5 {
+      @apply text-2xl;
+    }
+    &.is-6 {
+      @apply text-xl;
+    }
+  }
+  
+  .subtitle {
+    @apply font-main font-normal text-dark;
+    
+    &.is-1 {
+      @apply text-3xl;
+    }
+    &.is-2 {
+      @apply text-2xl;
+    }
+    &.is-3 {
+      @apply text-xl;
+    }
+    &.is-4 {
+      @apply text-lg;
+    }
+    &.is-5 {
+      @apply text-base;
+    }
+    &.is-6 {
+      @apply text-sm;
+    }
+  }
+  
+  // Text Colors
+  .has-text-primary {
+    @apply text-primary;
+  }
+  
+  .has-text-success {
+    @apply text-success;
+  }
+  
+  .has-text-info {
+    @apply text-info;
+  }
+  
+  .has-text-warning {
+    @apply text-warning;
+  }
+  
+  .has-text-light {
+    @apply text-light;
+  }
+  
+  .has-text-dark {
+    @apply text-dark;
+  }
+  
+  // Background Colors
+  .has-background-primary {
+    @apply bg-primary;
+  }
+  
+  .has-background-success {
+    @apply bg-success;
+  }
+  
+  .has-background-info {
+    @apply bg-info;
+  }
+  
+  .has-background-warning {
+    @apply bg-warning;
+  }
+  
+  .has-background-light {
+    @apply bg-light;
+  }
+  
+  .has-background-dark {
+    @apply bg-dark;
+  }
+  
+  // Flex utilities (Bulma 호환)
+  .is-flex {
+    @apply flex;
+  }
+  
+  .is-justify-content-center {
+    @apply justify-center;
+  }
+  
+  .is-align-items-center {
+    @apply items-center;
+  }
+  
+  .is-justify-content-space-between {
+    @apply justify-between;
+  }
+  
+  .is-flex-direction-column {
+    @apply flex-col;
+  }
+  
+  // Spacing utilities
+  .mb-unit {
+    @apply mb-unit;
+  }
+  
+  .mt-unit {
+    @apply mt-unit;
+  }
+  
+  .px-unit {
+    @apply px-unit;
+  }
+  
+  .py-unit {
+    @apply py-unit;
+  }
+  
+  // Responsive utilities
+  .is-hidden-mobile {
+    @apply hidden md:block;
+  }
+  
+  .is-hidden-tablet {
+    @apply md:hidden;
+  }
+  
+  .is-hidden-desktop {
+    @apply desktop-1216:hidden;
+  }
+}
+
+// 기존 mixins를 Tailwind 방식으로 변환
+@layer utilities {
+  .transition-custom {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .shadow-text-custom {
+    @apply text-shadow-custom;
+  }
+}

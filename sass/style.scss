@@ -1,0 +1,113 @@
+/*!
+Theme Name: Therosessom Custom Theme
+Theme URI: http://underscores.me/
+Author: Therosessom & Co.
+Author URI: http://www.therosessom.local
+Description: A custom theme for Therosessom.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Therosessom Custom Theme is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Tailwind CSS Base
+# Custom Variables
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Asides
+	## Comments
+# Media
+	## Captions
+	## Galleries
+# Page Templates
+	## Front page
+--------------------------------------------------------------*/
+
+// Tailwind CSS imports
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Custom variables and Tailwind CSS integration
+@import 'variables';
+@import 'mixins';
+@import 'tailwind-custom';
+
+// Base styles (keep existing structure but adapt to work with Tailwind)
+@import 'layout';
+@import 'normalize';
+@import 'fonts';
+@import 'typography';
+@import 'elements';
+@import 'forms';
+@import 'navigation';
+@import 'modules';
+@import 'widgets';
+@import 'content';
+@import 'media';
+@import 'page-templates';
+
+// Components (these will need to be adapted to work with Tailwind)
+@import 'header';
+@import 'footer';
+@import 'buttons';
+@import 'prt-hero';
+@import 'prt-tabs';
+@import 'prt-cards';
+@import 'prt-filter';
+@import 'prt-slider';
+@import 'prt-callout';
+@import 'prt-accordion';
+
+// Tailwind custom components and utilities
+@layer components {
+  // Custom button styles using Tailwind utilities
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition-colors;
+  }
+  
+  // Custom container styles
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  // Custom typography
+  .heading-primary {
+    @apply text-3xl font-bold text-gray-900 mb-4;
+  }
+  
+  .heading-secondary {
+    @apply text-2xl font-semibold text-gray-800 mb-3;
+  }
+  
+  // Custom card styles
+  .card-custom {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+  }
+}

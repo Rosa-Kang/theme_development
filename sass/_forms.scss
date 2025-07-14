@@ -1,0 +1,240 @@
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+
+/* Fields */
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+textarea {
+  color: $color__dark !important;
+  border: solid 1px $color__dark !important;
+  border-radius: 0 !important;
+  padding: $space-unit--xs $space-unit--s $space-unit--xs $space-unit--s !important;
+  font-size: 16px !important;
+  line-height: 25px !important;
+  box-shadow: none;
+  background: transparent !important;
+
+  &:focus {
+    border-color: $color__primary-dark !important;
+    color: $color__dark !important;
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='search'],
+input[type='tel'] {
+  min-width: 100%;
+  height: auto !important;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  height: 155px !important;
+  margin-bottom: $space-unit--s !important;
+  padding: $space-unit--xs $space-unit--s $space-unit--xs $space-unit--s !important;
+  border: solid 1px $color__dark !important;
+  border-radius: 0 !important;
+}
+
+label,
+input::placeholder,
+textarea::placeholder {
+  font-family: $font__main;
+  font-size: 16px !important;
+  line-height: 25px;
+  font-weight: $font__weight-normal !important;
+  color: $color__dark;
+}
+
+div.wpforms-container-full .wpforms-form select,
+div.wpforms-container .wpforms-form .choices__inner {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none;
+  background: transparent !important;
+  padding: $space-unit--xs $space-unit--s $space-unit--xs $space-unit--s !important;
+  height: auto !important;
+}
+
+div.wpforms-container .wpforms-form .choices__list--single {
+  padding: 0 !important;
+}
+
+div.wpforms-container .wpforms-form .choices__placeholder {
+  opacity: 1 !important;
+}
+
+div.wpforms-container-full .wpforms-form label.wpforms-error {
+  color: $color__primary !important;
+}
+
+.wpforms-required-label {
+  display: none !important;
+}
+
+.wpforms-confirmation-container-full {
+  margin: 24px auto !important;
+}
+
+/* Dropdown */
+div.wpforms-container .wpforms-form .choices[data-type*="select-one"] {
+  border: solid 1px $color__dark !important;
+  height: 51px !important;
+}
+
+// Contact Form -------------------------------
+/* Hide Google Captcha box */
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.contact-form,
+.additional-form {
+  div.wpforms-container-full {
+    margin-bottom: 0;
+
+    .wpforms-form input.wpforms-field-medium {
+      max-width: unset;
+    }
+
+    .wpforms-form .wpforms-submit-container {
+      text-align: center;
+      margin-bottom: $base__space-unit !important;
+    }
+  }
+}
+
+.contact-form {
+  .contact-icon {
+    fill: $color__primary;
+  }
+
+  .column:last-child {
+    ul {
+      margin-top: $space-unit--s;
+
+      @include bp(tablet) {
+        margin-top: $space-unit--xxs;
+      }
+    }
+
+    a,
+    a:visited {
+      color: $color__dark;
+
+      &:hover {
+        color: $color__info;
+
+        .contact-icon {
+          fill: $color__info;
+        }
+      }
+    }
+
+    li {
+      margin-bottom: $space-unit--s;
+
+      a {
+        word-break: break-all;
+        align-items: flex-start;
+      }
+    }
+
+    .scaling-svg-container {
+      position: relative;
+      height: 0;
+      width: 24px;
+      padding-bottom: 24px;
+      margin-right: $space-unit--s;
+      flex-shrink: 0;
+
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.contact-form-mentorship {
+  scroll-margin-top: 8.5rem; 
+
+  button {
+    margin-top: $space-unit--lg !important;
+  }
+}
+
+// MailChimp -------------------------------
+#mc_embed_signup {
+  h3 {
+    margin-top: $base__space-unit;
+
+    @include bp(desktop-1024) {
+      margin-top: 0;
+    }
+  }
+
+  label {
+    color: $color__light !important;
+    font-size: 12px !important;
+  }
+
+  input[type='email'] {
+    background: $color__light !important;
+    height: 55px !important;
+  }
+
+  input[type='submit'] {
+    border-radius: 50px !important;
+    color: $color__light !important;
+    font-size: 18px;
+    margin-top: $space-unit--s * 1.2;
+    transition: $transition;
+
+    &:hover {
+      background: $color__light !important;
+      color: $color__dark !important;
+    }
+  }
+
+  .clear.foot {
+    text-align: center;
+
+    @include bp(desktop-1024) {
+      text-align: left;
+    }
+  }
+
+  #mce-success-response {
+    color: $color__light !important;
+    font-size: 12px !important;
+    padding: 5px 0px 0px;
+    background-color: transparent !important;
+  }
+
+  #mce-error-response {
+    color: $color__light !important;
+    font-size: 12px !important;
+    padding: 5px 0px 0px;
+  }
+
+  div.mce_inline_error {
+    font-size: 12px !important;
+    padding: 5px 0px 0px !important;
+    background-color: transparent !important;
+    font-weight: $font__weight-normal !important;
+  }
+}

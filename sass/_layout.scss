@@ -1,0 +1,205 @@
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+// Backgrounds (use Bulma has-background-color) --------------------
+.bg-light-bis {
+  background: $color__light-bis;
+}
+
+.bg-success-dark {
+  background: $color__success-dark;
+}
+
+.has-background-primary-light {
+  p.is-family-primary.subtitle {
+    background: $color__primary !important;
+    color: $color__light !important;
+  }
+}
+
+.has-background-candles {
+  background: url(../../assets/images/thereas-banner.jpg) center / cover
+      no-repeat fixed;
+}
+
+// Containers ------------------
+.container {
+  @include bp(desktop-1024) {
+    max-width: 1344px !important;
+  }
+  @include bp(desktop-1216) {
+    max-width: 1152px !important;
+  }
+  @include bp(bulma-fullhd) {
+    max-width: 1344px !important;
+  }
+}
+
+.container-sm {
+  margin: 0 auto;
+  max-width: $container-width--sm;
+}
+
+.container-m {
+  margin: 0 auto;
+  max-width: $container-width--m;
+}
+
+.content-wrapper {
+  padding: $base__space-unit;
+}
+
+.content-wrapper {
+  @include bp(tablet) {
+    padding: $space-unit--lg !important;
+  }
+
+  @include bp(desktop-1920) {
+    padding: $space-unit--xxl !important;
+  }
+}
+
+.content-wrapper.pt-0 {
+  @include bp(tablet) {
+    padding: 0 $space-unit--lg $space-unit--lg !important;
+  }
+
+  @include bp(desktop-1920) {
+    padding: 0 $space-unit--xxl $space-unit--xxl !important;
+  }
+}
+
+.content-wrapper.pb-0 {
+  @include bp(tablet) {
+    padding: $space-unit--lg $space-unit--lg 0 !important;
+  }
+
+  @include bp(desktop-1920) {
+    padding: $space-unit--xxl $space-unit--xxl 0 !important;
+  }
+}
+
+.main-navigation-container.content-wrapper,
+.social-menu-wrapper > .content-wrapper {
+  @include bp(tablet) {
+    padding: 0 $space-unit--lg !important;
+  }
+
+  @include bp(desktop-1920) {
+    padding: 0 $space-unit--xxl !important;
+  }
+}
+
+.fixed-header {
+  margin-top: $mobile__menu-height;
+
+  @include bp($mobile__menu-bp) {
+    margin-top: 166px;
+  }
+}
+
+// Helpers -----------------------
+.mobile-wrapper {
+  @include bp($mobile__menu-bp) {
+    display: none;
+  }
+}
+
+.desktop-wrapper {
+  display: none;
+
+  @include bp($mobile__menu-bp) {
+    display: block;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+ul.list-style-none {
+  list-style: none !important;
+  margin: 0 !important;
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -$mobile__menu-height;
+  visibility: hidden;
+
+  @include bp($mobile__menu-bp) {
+    top: -$desktop__menu-height;
+  }
+}
+
+.text-col {
+  @include bp(tablet) {
+    column-count: 2;
+  }
+}
+
+// Decorative Vine and Seeds -------------
+.bg-vine {
+  background: url(../../assets/images/bg-watermelon-vine.svg) center / cover
+    no-repeat;
+  width: 95%;
+}
+
+
+/* Source: https://a11y-101.com/development/skip-link */
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.visually-hidden:focus {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  position: absolute;
+  width: auto;
+}
+
+
+.is-relative {
+  position: relative;
+}
+
+.decorative-line{
+    width: 100%;
+    height: 97px;
+    background: url(../../assets/images/line.svg) center / contain
+      no-repeat;
+}
+
+.line-through{
+  text-decoration: line-through;
+}
+
+.content-wrapper:has(.ig-feed-wrapper) {
+  padding-top: 0.5rem !important;
+  padding-bottom: 1rem !important;
+}
+
+// Woocommerce Sale mark
+.woocommerce span.onsale{
+  z-index: 3 !important;
+}

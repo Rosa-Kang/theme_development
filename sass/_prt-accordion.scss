@@ -1,0 +1,228 @@
+/*--------------------------------------------------------------
+# Accordions
+--------------------------------------------------------------*/
+
+// Accordion - Services & Jobs
+.accordions {
+  list-style: none;
+  margin: 0;
+}
+
+.accordion:nth-of-type(odd) {
+  background: $color__primary-light;
+}
+
+.accordion-header {
+  &:hover,
+  &:active {
+    cursor: pointer;
+  }
+
+  .job-title {
+    width: 336px;
+  }
+}
+
+.jobs-button-info-wrapper {
+  @include bp(tablet) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.info-wrapper {
+  @include bp(tablet) {
+    margin-left: $space-unit--xl;
+  }
+
+  @include bp(desktop-1280) {
+    margin-left: $space-unit--xxxl;
+  }
+
+  @include bp(bulma-fullhd) {
+    margin-left: $space-unit--xxxl * 2.5;
+  }
+}
+
+.accordion-body {
+  width: auto;
+  display: none;
+  white-space: normal;
+}
+
+.accordion-control {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: left;
+  width: 100%;
+  @include flex(row, space-between, center);
+  padding: 0;
+
+  &:hover {
+    border: none;
+    box-shadow: none;
+    opacity: $dim;
+  }
+}
+
+.accordion-icon-wrapper {
+  text-align: right;
+  transform-origin: center center;
+  transition: transform ease-out 0.3s;
+  height: 35px;
+  width: 35px;
+  line-height: 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  svg:last-child {
+    display: none;
+  }
+}
+
+.accordion-content {
+  li {
+    line-height: 1.5;
+  }
+}
+
+.info-wrapper {
+  display: block;
+
+  @include bp(desktop-1022) {
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+  }
+}
+
+// Accordion - FAQ
+.schema-faq-question.faq-closed {
+  &:hover {
+    cursor: pointer;
+    color: $color__primary !important;
+
+    &::after {
+      content: '';
+      background: url('../../assets/images/icon-arrow-circle-down-dark.svg')
+        no-repeat 0 0 !important;
+      background-size: 35px 35px;
+      background-position: right !important;
+      min-width: 35px;
+      min-height: 35px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.schema-faq-question.faq-opened {
+  &:hover {
+    cursor: pointer;
+    color: $color__primary !important;
+
+    &::after {
+      content: '';
+      background: url('../../assets/images/icon-arrow-circle-up-dark.svg')
+        no-repeat 0 0 !important;
+      background-size: 35px 35px;
+      background-position: right !important;
+      min-width: 35px;
+      min-height: 35px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.schema-faq-section:nth-of-type(odd) {
+  background: $color__primary-light;
+}
+
+.schema-faq-answer {
+  padding: 0 $base__space-unit $base__space-unit;
+}
+
+.faq-closed {
+  display: flex;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    background: url('../../assets/images/icon-arrow-circle-down-dark.svg')
+      no-repeat 0 0 !important;
+    background-size: 35px 35px;
+    background-position: right !important;
+    min-width: 35px;
+    min-height: 35px;
+    margin-left: 10px;
+  }
+}
+
+.faq-opened {
+  display: flex;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    background: url('../../assets/images/icon-arrow-circle-up-dark.svg')
+      no-repeat 0 0 !important;
+    background-size: 35px 35px;
+    background-position: right !important;
+    min-width: 35px;
+    min-height: 35px;
+    margin-left: 10px;
+  }
+}
+
+// Filter Accordion
+.wpc-filter-header {
+  border-bottom: solid 1px $color__dark;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+  }
+}
+
+.wpc-filter-header.filter-closed {
+  display: flex;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    background: url('../../assets/images/icon-arrow-down-dark.svg') no-repeat 0
+      0 !important;
+    background-size: 7px 7px;
+    background-position: right !important;
+    width: 7px;
+    height: 7px;
+    margin-top: 9px;
+  }
+}
+
+.wpc-filter-header.filter-opened {
+  display: flex;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    background: url('../../assets/images/icon-cross-dark.svg') no-repeat 0 0 !important;
+    background-size: 7px 7px;
+    background-position: right !important;
+    width: 7px;
+    height: 7px;
+    margin-top: 9px;
+  }
+}

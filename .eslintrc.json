@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "warn",
+    "quotes": ["warn", "single"],
+    "semi": ["warn", "always"]
+  },
+  "globals": {
+    "wp": "readonly",
+    "ajaxurl": "readonly"
+  },
+  "env": {
+    "es2020": true,
+    "node": true,
+    "browser": true
+  }
+}

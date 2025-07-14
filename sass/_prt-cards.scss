@@ -1,0 +1,395 @@
+/*--------------------------------------------------------------
+# Cards
+--------------------------------------------------------------*/
+
+// Tri Cards
+.tri-cards {
+  @include bp(tablet) {
+    margin-top: $space-unit--xxxl;
+  }
+
+  .cards-wrapper {
+    background: $color__light;
+    box-shadow: $box-shadow--1;
+    margin: 0 -0.75rem !important;
+
+    @include bp(tablet) {
+      position: relative;
+      top: -130px;
+    }
+
+    .columns {
+      margin: 0 !important;
+    }
+  }
+
+  div.column {
+    position: relative;
+
+    &:first-of-type:after,
+    &:nth-of-type(2):after {
+      content: '';
+      display: block;
+      width: 55%;
+      height: 1px;
+      border-bottom: solid 1px $color__dark;
+      margin: auto;
+
+      @include bp(tablet) {
+        border-bottom: none;
+        border-right: solid 1px $color__dark;
+        height: 55%;
+        width: 1px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+      }
+    }
+
+    figure {
+      margin: auto;
+      margin-top: $base__space-unit;
+
+      img {
+        width: 96px !important;
+        height: 96px !important;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+// Cards - Rates
+.rates-gallery {
+  .card {
+    .card-content {
+      @include bp(tablet) {
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .button {
+        max-width: 212px;
+      }
+    }
+
+    tr:nth-of-type(odd) {
+      background: $color__primary-light;
+    }
+
+    td {
+      line-height: 1.5;
+      padding: 0.1rem $space-unit--xs;
+
+      &:first-of-type {
+        width: 65%;
+      }
+    }
+  }
+}
+
+.rates {
+  .columns {
+    flex-direction: column !important;
+
+    @include bp(desktop-1024) {
+      flex-direction: row !important;
+    }
+
+    .rates-image-container {
+      position: relative;
+      z-index: 0;
+      left: -$space-unit--lg;
+      margin-top: -125px;
+
+      @include bp(tablet) {
+        left: -280px;
+      }
+
+      @include bp(desktop-1024) {
+        left: -50px;
+        margin-top: unset;
+      }
+
+      @include bp(desktop-1216) {
+        left: -150px;
+      }
+
+      .rates-image-wrapper {
+        height: 0;
+        padding-top: 80%;
+        width: 120%;
+
+        @include bp(tablet) {
+          padding-top: 60%;
+          width: 150%;
+        }
+
+        @include bp(desktop-1024) {
+          padding-top: 110%;
+          width: 110%;
+        }
+
+        @include bp(desktop-1216) {
+          padding-top: 120%;
+          width: 120%;
+        }
+      }
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      margin: auto;
+
+      @include bp(desktop-1024) {
+        margin: unset;
+      }
+
+      .card-content {
+        @include bp(tablet) {
+          padding: $space-unit--xl $space-unit--xxl;
+        }
+
+        tr {
+          &:nth-of-type(odd) {
+            background: $color__primary-light;
+          }
+
+          td {
+            padding: 0.1rem $space-unit--s;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Cards - Workshops
+.cards-workshops {
+  figure img {
+    width: auto;
+    margin: auto;
+  }
+
+  .card-content {
+    @include bp(desktop-1280) {
+      padding: $space-unit--xs !important;
+    }
+  }
+}
+
+// Cards - Careers
+.text-icon-left,
+.text-icon-left-bottom {
+  .seeds-m {
+    position: absolute;
+    margin-top: -$space-unit--xl;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    @include bp(desktop-1024) {
+      width: 75px;
+      height: 159px;
+      margin-top: -$space-unit--xs;
+    }
+  }
+
+  .text-icon-wrapper {
+    padding: $space-unit--lg $base__space-unit;
+
+    @include bp(tablet) {
+      padding: $space-unit--xxl;
+    }
+
+    .card {
+      background: transparent !important;
+      flex-direction: column;
+
+      @include bp(desktop-1024) {
+        flex-direction: row !important;
+      }
+
+      .card-image {
+        margin: auto;
+
+        @include bp(desktop-1024) {
+          margin: unset;
+        }
+
+        figure {
+          width: 50px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+// Cards - Recent Blogs
+.cards-recent-posts {
+  figure img {
+    object-fit: cover;
+  }
+}
+
+// Cards - Contact Info
+.cards-contact-info {
+  .card .card-content {
+    padding: 1.5rem 0 !important;
+
+    @include bp(desktop-1216) {
+      padding: 1.5rem !important;
+    }
+
+    tr {
+      &:nth-of-type(odd) {
+        background: $color__primary-light;
+      }
+
+      td {
+        padding: 0.1rem $space-unit--s;
+      }
+    }
+
+    p.is-family-primary.subtitle {
+      background: $color__primary !important;
+      color: $color__light !important;
+      display: block !important;
+    }
+  }
+}
+// Cards - Blog
+.cards-blog {
+  img {
+    object-fit: cover;
+  }
+}
+
+// Cards - Local Love
+.cards-local-love {
+  li {
+    line-height: 1.75;
+  }
+}
+
+p.local-love-description {
+  width: 297px;
+  height: 80px;
+  margin: auto;
+}
+
+// Cards - Team Members
+.cards-team-members {
+  figure img {
+    object-fit: cover;
+  }
+
+  .container {
+    .modal-close {
+      position: absolute !important;
+      background: $color__primary !important;
+      top: 20px !important;
+      right: 20px !important;
+    }
+
+    .modal-content {
+      width: 100% !important;
+
+      .card-entry-content {
+        @include bp(tablet) {
+          display: flex;
+          flex-direction: row;
+        }
+
+        figure img {
+          @include bp(tablet) {
+            width: 170px;
+            height: 170px;
+          }
+        }
+      }
+
+      .card-content {
+        text-align: center;
+        padding: 0 !important;
+
+        @include bp(tablet) {
+          text-align: left;
+          min-width: 325px;
+          padding: 0 $base__space-unit !important;
+        }
+      }
+    }
+  }
+
+  .text-flex {
+    flex-direction: column;
+
+    @include bp(tablet) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+
+    p.mice-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .highlights {
+    max-width: 277px;
+    margin: auto;
+
+    p {
+      max-width: 10ch;
+      text-align: center;
+
+      &::before {
+        content: '';
+        display: block;
+        margin: auto;
+        margin-bottom: 4px;
+        background: url(../../assets/images/icon-heart.svg);
+        background-size: 17px 15px;
+        width: 17px;
+        height: 15px;
+      }
+    }
+  }
+
+  .card-scroll-wrapper {
+    @include bp(tablet) {
+      height: 269px;
+      overflow: auto;
+      text-align: left;
+
+      /* Firefox */
+      scrollbar-width: thin !important;
+      scrollbar-color: $color__primary-light #eab3b0 !important;
+
+      /* Chrome, Edge, and Safari */
+      &::-webkit-scrollbar {
+        width: 3px !important;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $color__primary-light !important;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color__primary-light !important;
+        border-radius: 20px !important;
+        border: 3px solid #eab3b0 !important;
+      }
+    }
+
+    li {
+      line-height: 1.5;
+    }
+  }
+}

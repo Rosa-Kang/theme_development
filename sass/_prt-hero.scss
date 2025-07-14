@@ -1,0 +1,130 @@
+/*--------------------------------------------------------------
+# Hero
+--------------------------------------------------------------*/
+
+// Hero - Home
+.hero-slider {
+  ul{
+    height: 550px;
+    
+    @include bp($mobile__menu-bp){
+      height: 609px;
+    }
+  }
+}
+
+// Hero - All pages excluding Home
+section.hero {
+  margin-bottom: $base__space-unit;
+
+  @include bp(desktop-1280) {
+    margin-bottom: $space-unit--xl;
+  }
+
+  @include bp(desktop-1920) {
+    margin-bottom: $space-unit--lg;
+  }
+
+  .image.is-square img {
+    border: solid 10px $color__light;
+
+    @include bp(desktop-1280) {
+      width: 90% !important;
+      height: 90% !important;
+      object-fit: cover;
+    }
+  }
+
+  .hero-icon img {
+    height: 90px;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .columns.reverse {
+    align-items: center;
+
+    @include bp(tablet) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    @include bp(desktop-1280) {
+      align-items: unset;
+    }
+
+    .column {
+      @include bp(desktop-1280) {
+        position: relative;
+        margin-bottom: -18%;
+      }
+
+      .seeds-h {
+        position: absolute;
+        right: 2%;
+        bottom: -$space-unit--lg;
+        z-index: 2;
+        @include bp(tablet) {
+          right: unset;
+          left: 4%;
+          bottom: -3%;
+        }
+
+        @include bp(desktop-1280) {
+          left: -220px;
+          bottom: 140px;
+        }
+
+        @include bp(desktop-1408) {
+          bottom: 174px;
+        }
+      }
+    }
+
+    .hero-text-container {
+      @include bp(desktop-1280) {
+        margin-top: 3rem;
+      }
+      p.has-max-width {
+        @include bp(tablet) {
+          max-width: 348px;
+        }
+      }
+    }
+  }
+}
+
+.page-template-page-workshops section.hero {
+  @include bp(desktop-1280) {
+    margin-bottom: $space-unit--xxl;
+  }
+}
+
+// Hero single - Blog posts
+section.hero-single {
+  @include bp(desktop-1280) {
+    height: 452px;
+    margin-bottom: 228px;
+  }
+
+  .container-m {
+    position: relative;
+
+    .seeds-m {
+      position: absolute;
+      right: $space-unit--xs;
+      top: 50%;
+      transform: translateY(20%);
+      z-index: 3;
+
+      @include bp(desktop-1920) {
+        right: $space-unit--lg;
+      }
+    }
+  }
+
+  figure img {
+    border: solid 10px $color__light;
+    object-fit: cover;
+  }
+}
