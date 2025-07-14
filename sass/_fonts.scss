@@ -1,15 +1,72 @@
 /*--------------------------------------------------------------
-# Embedded Fonts
+# Fonts - CDN + Local Fallback Strategy
 --------------------------------------------------------------*/
 
+/* 
+  Font Loading Strategy:
+  1. CDN fonts (Google Fonts, etc.) - loaded in HTML head
+  2. Local fonts (custom brand fonts) - defined here as fallback
+  3. System fonts - ultimate fallback
+*/
+
+/* Custom Brand Font - Local Fallback */
 @font-face {
   font-family: 'CaliforniaPalms-Script';
   src: url('../../assets/fonts/CaliforniaPalms_Script_thicker.eot');
-  src: url('../../assets/fonts/CaliforniaPalms_Script_thicker.woff')
-      format('woff'),
-    url('../../assets/fonts/CaliforniaPalms_Script_thicker.ttf')
-      format('truetype');
-  font-weight: $font__weight-normal;
+  src: url('../../assets/fonts/CaliforniaPalms_Script_thicker.woff2') format('woff2'),
+       url('../../assets/fonts/CaliforniaPalms_Script_thicker.woff') format('woff'),
+       url('../../assets/fonts/CaliforniaPalms_Script_thicker.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; /* Improves loading performance */
+}
+
+/* Font Stack Definitions */
+:root {
+  /* Primary font stack - CDN + Local + System fallback */
+  --font-main: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Accent font stack - CDN + Local + System fallback */  
+  --font-accent: 'Cinzel', Georgia, 'Times New Roman', Times, serif;
+  
+  /* Brand font stack - Local + System fallback */
+  --font-bold: 'CaliforniaPalms-Script', 'Brush Script MT', cursive, serif;
+  
+  /* Monospace font stack */
+  --font-code: 'Monaco', 'Consolas', 'Andale Mono', 'DejaVu Sans Mono', 'Courier New', monospace;
+  --font-pre: 'Courier 10 Pitch', 'Courier', monospace;
+}
+
+/* Base font loading optimization */
+@layer base {
+  html {
+    font-family: var(--font-main);
+    /* Improve font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Utility classes for font families */
+@layer utilities {
+  .font-main {
+    font-family: var(--font-main);
+  }
+  
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+  
+  .font-bold {
+    font-family: var(--font-bold);
+  }
+  
+  .font-code {
+    font-family: var(--font-code);
+  }
+  
+  .font-pre {
+    font-family: var(--font-pre);
+  }
 }

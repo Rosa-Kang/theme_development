@@ -1,240 +1,206 @@
 /*--------------------------------------------------------------
-# Forms
+# Forms - Tailwind Compatible
 --------------------------------------------------------------*/
 
-/* Fields */
-
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-textarea {
-  color: $color__dark !important;
-  border: solid 1px $color__dark !important;
-  border-radius: 0 !important;
-  padding: $space-unit--xs $space-unit--s $space-unit--xs $space-unit--s !important;
-  font-size: 16px !important;
-  line-height: 25px !important;
-  box-shadow: none;
-  background: transparent !important;
-
-  &:focus {
-    border-color: $color__primary-dark !important;
-    color: $color__dark !important;
+/* Use @layer components for form styles to work with Tailwind */
+@layer components {
+  
+  /* Base form field styles */
+  .form-field,
+  input[type='text'],
+  input[type='email'],
+  input[type='url'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  textarea {
+    @apply text-dark border border-dark bg-transparent;
+    @apply text-base leading-6 shadow-none;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0 !important;
+    min-width: 100%;
+  }
+  
+  .form-field:focus,
+  input[type='text']:focus,
+  input[type='email']:focus,
+  input[type='url']:focus,
+  input[type='password']:focus,
+  input[type='search']:focus,
+  input[type='tel']:focus,
+  textarea:focus {
+    @apply border-primary-dark text-dark outline-none;
+  }
+  
+  /* Textarea specific styles */
+  textarea {
+    @apply w-full resize-none;
+    height: 155px !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Label and placeholder styles */
+  label,
+  input::placeholder,
+  textarea::placeholder {
+    @apply font-main text-base leading-6 font-normal text-dark;
+  }
+  
+  /* WPForms specific styles */
+  .wpforms-container-full .wpforms-form select,
+  .wpforms-container .wpforms-form .choices__inner {
+    @apply border-none bg-transparent shadow-none;
+    border-radius: 0 !important;
+    padding: 0.75rem 1rem !important;
+    height: auto !important;
+  }
+  
+  .wpforms-container .wpforms-form .choices__list--single {
+    padding: 0 !important;
+  }
+  
+  .wpforms-container .wpforms-form .choices__placeholder {
+    opacity: 1 !important;
+  }
+  
+  .wpforms-container-full .wpforms-form label.wpforms-error {
+    @apply text-primary;
+  }
+  
+  .wpforms-required-label {
+    display: none !important;
+  }
+  
+  .wpforms-confirmation-container-full {
+    margin: 24px auto !important;
+  }
+  
+  /* Dropdown specific styles */
+  .wpforms-container .wpforms-form .choices[data-type*="select-one"] {
+    @apply border border-dark;
+    height: 51px !important;
   }
 }
 
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='password'],
-input[type='search'],
-input[type='tel'] {
-  min-width: 100%;
-  height: auto !important;
-}
-
-textarea {
-  width: 100%;
-  resize: none;
-  height: 155px !important;
-  margin-bottom: $space-unit--s !important;
-  padding: $space-unit--xs $space-unit--s $space-unit--xs $space-unit--s !important;
-  border: solid 1px $color__dark !important;
-  border-radius: 0 !important;
-}
-
-label,
-input::placeholder,
-textarea::placeholder {
-  font-family: $font__main;
-  font-size: 16px !important;
-  line-height: 25px;
-  font-weight: $font__weight-normal !important;
-  color: $color__dark;
-}
-
-div.wpforms-container-full .wpforms-form select,
-div.wpforms-container .wpforms-form .choices__inner {
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none;
-  background: transparent !important;
-  padding: $space-unit--xs $space-unit--s $space-unit--xs $space-unit--s !important;
-  height: auto !important;
-}
-
-div.wpforms-container .wpforms-form .choices__list--single {
-  padding: 0 !important;
-}
-
-div.wpforms-container .wpforms-form .choices__placeholder {
-  opacity: 1 !important;
-}
-
-div.wpforms-container-full .wpforms-form label.wpforms-error {
-  color: $color__primary !important;
-}
-
-.wpforms-required-label {
-  display: none !important;
-}
-
-.wpforms-confirmation-container-full {
-  margin: 24px auto !important;
-}
-
-/* Dropdown */
-div.wpforms-container .wpforms-form .choices[data-type*="select-one"] {
-  border: solid 1px $color__dark !important;
-  height: 51px !important;
-}
-
-// Contact Form -------------------------------
-/* Hide Google Captcha box */
-.grecaptcha-badge {
-  visibility: hidden;
-}
-
-.contact-form,
-.additional-form {
-  div.wpforms-container-full {
-    margin-bottom: 0;
-
-    .wpforms-form input.wpforms-field-medium {
-      max-width: unset;
-    }
-
-    .wpforms-form .wpforms-submit-container {
-      text-align: center;
-      margin-bottom: $base__space-unit !important;
-    }
-  }
-}
-
-.contact-form {
-  .contact-icon {
-    fill: $color__primary;
-  }
-
-  .column:last-child {
-    ul {
-      margin-top: $space-unit--s;
-
-      @include bp(tablet) {
-        margin-top: $space-unit--xxs;
+/* Contact Form Styles */
+@layer components {
+  .contact-form,
+  .additional-form {
+    .wpforms-container-full {
+      margin-bottom: 0;
+      
+      .wpforms-form input.wpforms-field-medium {
+        max-width: unset;
+      }
+      
+      .wpforms-form .wpforms-submit-container {
+        @apply text-center mb-6;
       }
     }
-
-    a,
-    a:visited {
-      color: $color__dark;
-
-      &:hover {
-        color: $color__info;
-
+  }
+  
+  .contact-form {
+    .contact-icon {
+      @apply fill-primary;
+    }
+    
+    .column:last-child {
+      ul {
+        @apply mt-4 md:mt-2;
+      }
+      
+      a,
+      a:visited {
+        @apply text-dark;
+      }
+      
+      a:hover {
+        @apply text-info;
+        
         .contact-icon {
-          fill: $color__info;
+          @apply fill-info;
+        }
+      }
+      
+      li {
+        @apply mb-4;
+        
+        a {
+          word-break: break-all;
+          @apply items-start;
+        }
+      }
+      
+      .scaling-svg-container {
+        @apply relative w-6 h-6 mr-4 flex-shrink-0;
+        padding-bottom: 24px;
+        
+        svg {
+          @apply absolute top-0 left-0 w-full h-full;
         }
       }
     }
-
-    li {
-      margin-bottom: $space-unit--s;
-
-      a {
-        word-break: break-all;
-        align-items: flex-start;
-      }
-    }
-
-    .scaling-svg-container {
-      position: relative;
-      height: 0;
-      width: 24px;
-      padding-bottom: 24px;
-      margin-right: $space-unit--s;
-      flex-shrink: 0;
-
-      svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
+  }
+  
+  .contact-form-mentorship {
+    scroll-margin-top: 8.5rem;
+    
+    button {
+      margin-top: 2.5rem !important;
     }
   }
 }
 
-.contact-form-mentorship {
-  scroll-margin-top: 8.5rem; 
-
-  button {
-    margin-top: $space-unit--lg !important;
+/* MailChimp Styles */
+@layer components {
+  #mc_embed_signup {
+    h3 {
+      @apply mt-6 desktop-1024:mt-0;
+    }
+    
+    label {
+      @apply text-light text-xs;
+    }
+    
+    input[type='email'] {
+      @apply bg-light;
+      height: 55px !important;
+    }
+    
+    input[type='submit'] {
+      @apply text-light text-lg transition-custom;
+      border-radius: 50px !important;
+      margin-top: 1.2rem;
+    }
+    
+    input[type='submit']:hover {
+      @apply bg-light text-dark;
+    }
+    
+    .clear.foot {
+      @apply text-center desktop-1024:text-left;
+    }
+    
+    #mce-success-response {
+      @apply text-light text-xs bg-transparent;
+      padding: 5px 0px 0px;
+    }
+    
+    #mce-error-response {
+      @apply text-light text-xs;
+      padding: 5px 0px 0px;
+    }
+    
+    div.mce_inline_error {
+      @apply text-xs font-normal bg-transparent;
+      padding: 5px 0px 0px !important;
+    }
   }
 }
 
-// MailChimp -------------------------------
-#mc_embed_signup {
-  h3 {
-    margin-top: $base__space-unit;
-
-    @include bp(desktop-1024) {
-      margin-top: 0;
-    }
-  }
-
-  label {
-    color: $color__light !important;
-    font-size: 12px !important;
-  }
-
-  input[type='email'] {
-    background: $color__light !important;
-    height: 55px !important;
-  }
-
-  input[type='submit'] {
-    border-radius: 50px !important;
-    color: $color__light !important;
-    font-size: 18px;
-    margin-top: $space-unit--s * 1.2;
-    transition: $transition;
-
-    &:hover {
-      background: $color__light !important;
-      color: $color__dark !important;
-    }
-  }
-
-  .clear.foot {
-    text-align: center;
-
-    @include bp(desktop-1024) {
-      text-align: left;
-    }
-  }
-
-  #mce-success-response {
-    color: $color__light !important;
-    font-size: 12px !important;
-    padding: 5px 0px 0px;
-    background-color: transparent !important;
-  }
-
-  #mce-error-response {
-    color: $color__light !important;
-    font-size: 12px !important;
-    padding: 5px 0px 0px;
-  }
-
-  div.mce_inline_error {
-    font-size: 12px !important;
-    padding: 5px 0px 0px !important;
-    background-color: transparent !important;
-    font-weight: $font__weight-normal !important;
+/* Utility styles */
+@layer utilities {
+  .grecaptcha-badge {
+    visibility: hidden;
   }
 }

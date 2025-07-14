@@ -1,228 +1,167 @@
 /*--------------------------------------------------------------
-# Accordions
+# Accordions - Tailwind Compatible
 --------------------------------------------------------------*/
 
-// Accordion - Services & Jobs
-.accordions {
-  list-style: none;
-  margin: 0;
-}
-
-.accordion:nth-of-type(odd) {
-  background: $color__primary-light;
-}
-
-.accordion-header {
-  &:hover,
-  &:active {
-    cursor: pointer;
+@layer components {
+  
+  /* Accordion - Services & Jobs */
+  .accordions {
+    @apply list-none m-0;
   }
-
-  .job-title {
-    width: 336px;
+  
+  .accordion:nth-of-type(odd) {
+    @apply bg-primary-light;
   }
-}
-
-.jobs-button-info-wrapper {
-  @include bp(tablet) {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-.info-wrapper {
-  @include bp(tablet) {
-    margin-left: $space-unit--xl;
-  }
-
-  @include bp(desktop-1280) {
-    margin-left: $space-unit--xxxl;
-  }
-
-  @include bp(bulma-fullhd) {
-    margin-left: $space-unit--xxxl * 2.5;
-  }
-}
-
-.accordion-body {
-  width: auto;
-  display: none;
-  white-space: normal;
-}
-
-.accordion-control {
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  text-shadow: none;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  line-height: inherit;
-  text-align: left;
-  width: 100%;
-  @include flex(row, space-between, center);
-  padding: 0;
-
-  &:hover {
-    border: none;
-    box-shadow: none;
-    opacity: $dim;
-  }
-}
-
-.accordion-icon-wrapper {
-  text-align: right;
-  transform-origin: center center;
-  transition: transform ease-out 0.3s;
-  height: 35px;
-  width: 35px;
-  line-height: 0;
-
-  &:focus {
-    outline: 0;
-  }
-
-  svg {
-    width: 35px;
-    height: 35px;
-  }
-
-  svg:last-child {
-    display: none;
-  }
-}
-
-.accordion-content {
-  li {
-    line-height: 1.5;
-  }
-}
-
-.info-wrapper {
-  display: block;
-
-  @include bp(desktop-1022) {
-    display: flex;
-    width: 35%;
-    justify-content: space-between;
-  }
-}
-
-// Accordion - FAQ
-.schema-faq-question.faq-closed {
-  &:hover {
-    cursor: pointer;
-    color: $color__primary !important;
-
-    &::after {
-      content: '';
-      background: url('../../assets/images/icon-arrow-circle-down-dark.svg')
-        no-repeat 0 0 !important;
-      background-size: 35px 35px;
-      background-position: right !important;
-      min-width: 35px;
-      min-height: 35px;
-      margin-left: 10px;
+  
+  .accordion-header {
+    @apply cursor-pointer;
+    
+    .job-title {
+      width: 336px;
     }
   }
-}
-
-.schema-faq-question.faq-opened {
-  &:hover {
-    cursor: pointer;
-    color: $color__primary !important;
-
-    &::after {
-      content: '';
-      background: url('../../assets/images/icon-arrow-circle-up-dark.svg')
-        no-repeat 0 0 !important;
-      background-size: 35px 35px;
-      background-position: right !important;
-      min-width: 35px;
-      min-height: 35px;
-      margin-left: 10px;
+  
+  .jobs-button-info-wrapper {
+    @apply md:flex md:flex-row;
+  }
+  
+  .info-wrapper {
+    @apply block;
+    
+    @apply md:ml-12;
+    @apply desktop-1280:ml-24;
+    @apply desktop-1408:ml-[15rem];
+    
+    @apply desktop-1022:flex desktop-1022:w-[35%] desktop-1022:justify-between;
+  }
+  
+  .accordion-body {
+    @apply w-auto hidden whitespace-normal;
+  }
+  
+  .accordion-control {
+    @apply border-none bg-transparent shadow-none text-left w-full p-0;
+    @apply flex flex-row justify-between items-center;
+    @apply hover:border-none hover:shadow-none;
+    text-shadow: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+    
+    &:hover {
+      opacity: 0.7;
     }
   }
-}
-
-.schema-faq-section:nth-of-type(odd) {
-  background: $color__primary-light;
-}
-
-.schema-faq-answer {
-  padding: 0 $base__space-unit $base__space-unit;
-}
-
-.faq-closed {
-  display: flex;
-  justify-content: space-between;
-
-  &::after {
-    content: '';
-    background: url('../../assets/images/icon-arrow-circle-down-dark.svg')
-      no-repeat 0 0 !important;
-    background-size: 35px 35px;
-    background-position: right !important;
-    min-width: 35px;
-    min-height: 35px;
-    margin-left: 10px;
+  
+  .accordion-icon-wrapper {
+    @apply text-right w-9 h-9 leading-none;
+    @apply focus:outline-none;
+    transform-origin: center center;
+    transition: transform ease-out 0.3s;
+    
+    svg {
+      @apply w-9 h-9;
+      
+      &:last-child {
+        @apply hidden;
+      }
+    }
   }
-}
-
-.faq-opened {
-  display: flex;
-  justify-content: space-between;
-
-  &::after {
-    content: '';
-    background: url('../../assets/images/icon-arrow-circle-up-dark.svg')
-      no-repeat 0 0 !important;
-    background-size: 35px 35px;
-    background-position: right !important;
-    min-width: 35px;
-    min-height: 35px;
-    margin-left: 10px;
+  
+  .accordion-content {
+    li {
+      @apply leading-6;
+    }
   }
-}
-
-// Filter Accordion
-.wpc-filter-header {
-  border-bottom: solid 1px $color__dark;
-
-  &:hover,
-  &:active {
-    cursor: pointer;
+  
+  /* Accordion - FAQ */
+  .schema-faq-question.faq-closed {
+    &:hover {
+      @apply cursor-pointer text-primary;
+      
+      &::after {
+        content: '';
+        background: url('../../assets/images/icon-arrow-circle-down-dark.svg') no-repeat 0 0 !important;
+        background-size: 35px 35px;
+        background-position: right !important;
+        @apply min-w-9 min-h-9 ml-2;
+      }
+    }
   }
-}
-
-.wpc-filter-header.filter-closed {
-  display: flex;
-  justify-content: space-between;
-
-  &::after {
-    content: '';
-    background: url('../../assets/images/icon-arrow-down-dark.svg') no-repeat 0
-      0 !important;
-    background-size: 7px 7px;
-    background-position: right !important;
-    width: 7px;
-    height: 7px;
-    margin-top: 9px;
+  
+  .schema-faq-question.faq-opened {
+    &:hover {
+      @apply cursor-pointer text-primary;
+      
+      &::after {
+        content: '';
+        background: url('../../assets/images/icon-arrow-circle-up-dark.svg') no-repeat 0 0 !important;
+        background-size: 35px 35px;
+        background-position: right !important;
+        @apply min-w-9 min-h-9 ml-2;
+      }
+    }
   }
-}
-
-.wpc-filter-header.filter-opened {
-  display: flex;
-  justify-content: space-between;
-
-  &::after {
-    content: '';
-    background: url('../../assets/images/icon-cross-dark.svg') no-repeat 0 0 !important;
-    background-size: 7px 7px;
-    background-position: right !important;
-    width: 7px;
-    height: 7px;
-    margin-top: 9px;
+  
+  .schema-faq-section:nth-of-type(odd) {
+    @apply bg-primary-light;
+  }
+  
+  .schema-faq-answer {
+    @apply px-6 pb-6;
+  }
+  
+  .faq-closed {
+    @apply flex justify-between;
+    
+    &::after {
+      content: '';
+      background: url('../../assets/images/icon-arrow-circle-down-dark.svg') no-repeat 0 0 !important;
+      background-size: 35px 35px;
+      background-position: right !important;
+      @apply min-w-9 min-h-9 ml-2;
+    }
+  }
+  
+  .faq-opened {
+    @apply flex justify-between;
+    
+    &::after {
+      content: '';
+      background: url('../../assets/images/icon-arrow-circle-up-dark.svg') no-repeat 0 0 !important;
+      background-size: 35px 35px;
+      background-position: right !important;
+      @apply min-w-9 min-h-9 ml-2;
+    }
+  }
+  
+  /* Filter Accordion */
+  .wpc-filter-header {
+    @apply border-b border-dark cursor-pointer;
+  }
+  
+  .wpc-filter-header.filter-closed {
+    @apply flex justify-between;
+    
+    &::after {
+      content: '';
+      background: url('../../assets/images/icon-arrow-down-dark.svg') no-repeat 0 0 !important;
+      background-size: 7px 7px;
+      background-position: right !important;
+      @apply w-2 h-2 mt-2;
+    }
+  }
+  
+  .wpc-filter-header.filter-opened {
+    @apply flex justify-between;
+    
+    &::after {
+      content: '';
+      background: url('../../assets/images/icon-cross-dark.svg') no-repeat 0 0 !important;
+      background-size: 7px 7px;
+      background-position: right !important;
+      @apply w-2 h-2 mt-2;
+    }
   }
 }

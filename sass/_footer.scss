@@ -1,35 +1,69 @@
 /*--------------------------------------------------------------
-# Footer
+# Footer - Essential Styles Only
 --------------------------------------------------------------*/
 
-.site-footer {
-  width: 100%;
-  z-index: 99999;
-
-  .bottom-deco{
-      position: relative;
-    &::after{
-      content: ' ';
-      position: absolute;
-      background: url(../../assets/images/bottom-deco.svg) center/cover no-repeat;
-      transform: translateX(-50%);
-      bottom: -1px;
-      left: 50%;
-      height: 18px;
-      width: 48px;
+@layer components {
+  
+  /* Site footer container */
+  .site-footer {
+    @apply w-full z-[99999];
+    
+    /* Custom decorative element */
+    .bottom-deco {
+      @apply relative;
+      
+      &::after {
+        content: ' ';
+        @apply absolute bottom-0 left-1/2 transform -translate-x-1/2;
+        @apply w-12 h-4.5;
+        background: url(../../assets/images/bottom-deco.svg) center/cover no-repeat;
+        bottom: -1px;
+      }
+    }
+    
+    /* Footer menu */
+    ul#menu-footer-menu {
+      @apply list-none m-0 flex items-center justify-around;
+    }
+    
+    /* Content wrapper override for footer */
+    .content-wrapper {
+      @apply pt-4 pb-4;
     }
   }
-
-  ul#menu-footer-menu {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  
+  /* Footer text styles */
+  .footer-text {
+    @apply text-sm leading-5 whitespace-nowrap;
+    
+    @media (min-width: 768px) {
+      @apply text-base leading-5;
+    }
   }
+  
+  /* Footer link styles */
+  footer p.is-underlined {
+    text-underline-offset: 3px;
+  }
+  
+  /* Privacy and copyright sections */
+  .privacy-terms-wrapper,
+  .copyright-wrapper {
+    .footer-text,
+    li,
+    a {
+      @apply text-xs leading-none;
+    }
+  }
+}
 
-  .content-wrapper {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+/* Footer responsive adjustments */
+@layer utilities {
+  .footer-responsive {
+    @apply text-center md:text-left;
+  }
+  
+  .footer-menu-responsive {
+    @apply flex flex-col md:flex-row items-center;
   }
 }

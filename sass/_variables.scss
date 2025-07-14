@@ -1,16 +1,25 @@
-// Tailwindcss Properties
+/*--------------------------------------------------------------
+# Variables - Complete for Tailwind Integration
+--------------------------------------------------------------*/
 
-// Spacing
+/* CSS Custom Properties for dynamic values */
+:root {
+  --color-overlay: rgba(49, 49, 51, 0.25);
+  --transition-custom: all 0.3s ease-in-out;
+  --text-shadow-custom: 0px 3px 1px rgba(65, 64, 66, 0.2);
+}
+
+/* Spacing */
 $base__space-unit: 1.5rem;
-$space-unit--xxxl: $base__space-unit * 4; // 6rem
-$space-unit--xxl: $base__space-unit * 3; // 4.5rem
-$space-unit--xl: $base__space-unit * 2; // 3rem
-$space-unit--lg: $base__space-unit * 1.67; // 2.5rem
-$space-unit--s: $base__space-unit * 0.67; // 1rem
-$space-unit--xs: $base__space-unit/2; // 0.75rem
-$space-unit--xxs: $base__space-unit/3; // 0.5rem
+$space-unit--xxxl: $base__space-unit * 4; /* 6rem */
+$space-unit--xxl: $base__space-unit * 3; /* 4.5rem */
+$space-unit--xl: $base__space-unit * 2; /* 3rem */
+$space-unit--lg: $base__space-unit * 1.67; /* 2.5rem */
+$space-unit--s: $base__space-unit * 0.67; /* 1rem */
+$space-unit--xs: $base__space-unit/2; /* 0.75rem */
+$space-unit--xxs: $base__space-unit/3; /* 0.5rem */
 
-// Colors
+/* Colors - Matching Tailwind config */
 $color__light: #ffffff;
 $color__light-bis: #FDF7F2;
 $color__dark: #231f20;
@@ -28,21 +37,44 @@ $color__warning-invert: $color__info;
 $color__warning-light: #ffeee6;
 $color__overlay: rgba(49, 49, 51, 0.25);
 
-// Fonts
+/* Typography colors for legacy components */
+$color__text-main: $color__dark;
+$color__background-body: $color__light;
+$color__background-pre: #eee;
+$color__background-hr: #ccc;
+$color__border-abbr: #666;
+$color__background-ins: #fff9c0;
+$color__background-screen: #f1f1f1;
+$color__text-screen: #21759b;
+
+/* Link colors */
+$color__link: $color__primary;
+$color__link-visited: $color__primary-dark;
+$color__link-hover: $color__info;
+
+/* Fonts */
 $font__main: 'Lato', sans-serif;
 $font__accent: 'Cinzel', serif;
 $font__bold: 'CaliforniaPalms-Script', serif;
+$font__code: 'Monaco', 'Consolas', 'Andale Mono', 'DejaVu Sans Mono', monospace;
+$font__pre: 'Courier 10 Pitch', 'Courier', monospace;
+
+/* Font weights */
 $font__weight-light: 300;
 $font__weight-normal: 400;
 $font__weight-medium: 500;
 $font__weight-semibold: 600;
 $font__weight-bold: 700;
 
-// UI Property
+/* Font sizes for legacy components */
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+/* UI Properties */
 $transition: all 0.3s ease-in-out;
 $text__shadow: 0px 3px 1px rgba(65, 64, 66, 0.2);
 
-// Shadow effect
+/* Shadow effects */
 $box-shadow--1: 0px 2px 8px rgba(0, 0, 0, 0.16);
 $box-shadow--2: 0px 3px 6px rgba(0, 0, 0, 0.16);
 $box-shadow--3: 0px 3px 4px rgba(0, 0, 0, 0.1);
@@ -50,6 +82,39 @@ $box-shadow--4: 0px 5px 6px rgba(0, 0, 0, 0.2);
 $box-shadow--btn: 0px 1px 2px rgba(0, 0, 0, 0.3);
 $box-shadow--card: 0px 5px 5px 1px rgba(0, 0, 0, 0.1);
 
-// Breakpoint
+/* Container widths */
+$container-width: 1170px;
+$container-width--sm: 768px;
+$container-width--m: 900px;
+
+/* Menu heights */
+$mobile__menu-height: 96px;
+$desktop__menu-height: 71px;
+$banner__menu-height: 35px;
+$mobile__menu-width: 320px;
+
+/* Breakpoints - Matching Tailwind config */
+$small-screen-320: 320px;
+$small-screen: 375px;
+$small-screen-414: 414px;
+$small-screen-667: 667px;
+$small-screen-736: 736px;
+$medium-screen: 768px;
+$medium-screen-834: 834px;
+$large-screen-1022: 1022px;
+$large-screen-1024: 1024px;
+$large-screen-1080: 1080px;
+$large-screen-1216: 1216px;
+$large-screen-1280: 1280px;
+$large-screen: 1366px;
+$bulma-screen-1408: 1408px;
+$large-screen-1440: 1440px;
+$large-screen-1600: 1600px;
+$large-screen-1865: 1865px;
+$large-screen-1920: 1920px;
+$large-screen-2560: 2560px;
+
+/* Legacy variables */
 $mobile__bp: 1216px;
+$mobile__menu-bp: 1080px;
 $tablet: 768px;

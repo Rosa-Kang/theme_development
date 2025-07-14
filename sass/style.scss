@@ -24,55 +24,41 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 ----------------------------------------------------------------
 # Tailwind CSS Base
 # Custom Variables
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Asides
-	## Comments
-# Media
-	## Captions
-	## Galleries
-# Page Templates
-	## Front page
+# Tailwind Custom Components
+# Layout & Typography
+# Forms & Navigation
+# Content & Components
+# Page-specific Styles
 --------------------------------------------------------------*/
 
-// Tailwind CSS imports
+/* Tailwind CSS imports */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-// Custom variables and Tailwind CSS integration
+/* Essential variables only (no mixins) */
 @import 'variables';
-@import 'mixins';
+
+/* Tailwind custom components and utilities */
 @import 'tailwind-custom';
 
-// Base styles (keep existing structure but adapt to work with Tailwind)
+/* Core theme styles (Tailwind compatible, no mixins) */
 @import 'layout';
-@import 'normalize';
 @import 'fonts';
 @import 'typography';
-@import 'elements';
 @import 'forms';
-@import 'navigation';
-@import 'modules';
-@import 'widgets';
 @import 'content';
-@import 'media';
-@import 'page-templates';
 
-// Components (these will need to be adapted to work with Tailwind)
+/* Navigation and structural components */
 @import 'header';
 @import 'footer';
 @import 'buttons';
+
+/* Page components */
+@import 'widgets';
+@import 'page-templates';
+
+/* Feature components */
 @import 'prt-hero';
 @import 'prt-tabs';
 @import 'prt-cards';
@@ -81,33 +67,95 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import 'prt-callout';
 @import 'prt-accordion';
 
-// Tailwind custom components and utilities
+/* Additional Tailwind components */
 @layer components {
-  // Custom button styles using Tailwind utilities
+  
+  /* Enhanced button styles */
   .btn-primary {
-    @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors;
+    @apply bg-primary text-primary-invert px-4 py-2 rounded;
+    @apply hover:bg-primary-dark transition-all duration-300 ease-in-out;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition-colors;
+    @apply bg-success text-dark px-4 py-2 rounded;
+    @apply hover:bg-success-dark hover:text-light transition-all duration-300 ease-in-out;
   }
   
-  // Custom container styles
+  .btn-info {
+    @apply bg-info text-light px-4 py-2 rounded;
+    @apply hover:bg-info-dark transition-all duration-300 ease-in-out;
+  }
+  
+  .btn-warning {
+    @apply bg-warning text-dark px-4 py-2 rounded;
+    @apply hover:bg-warning-light transition-all duration-300 ease-in-out;
+  }
+  
+  /* Enhanced container styles */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-container mx-auto px-4 sm:px-6 lg:px-8;
   }
   
-  // Custom typography
+  .container-custom-sm {
+    @apply max-w-container-sm mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-custom-m {
+    @apply max-w-container-m mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Enhanced typography */
   .heading-primary {
-    @apply text-3xl font-bold text-gray-900 mb-4;
+    @apply font-accent font-bold text-dark text-4xl mb-4;
   }
   
   .heading-secondary {
-    @apply text-2xl font-semibold text-gray-800 mb-3;
+    @apply font-accent font-semibold text-dark text-2xl mb-3;
   }
   
-  // Custom card styles
+  .text-body {
+    @apply font-main text-dark text-base leading-6;
+  }
+  
+  /* Enhanced card styles */
   .card-custom {
-    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+    @apply bg-white rounded-none shadow-card p-6;
+    @apply hover:shadow-custom-2 transition-shadow duration-300;
+  }
+  
+  /* WordPress specific components */
+  .wp-block-quote {
+    @apply border-l-4 border-primary pl-6 italic text-lg;
+  }
+  
+  .wp-block-pullquote {
+    @apply text-center my-8 text-xl text-primary font-bold;
+  }
+  
+  /* Accessibility improvements */
+  .sr-only {
+    @apply absolute w-px h-px overflow-hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+  }
+  
+  .sr-only:focus {
+    @apply relative w-auto h-auto overflow-auto;
+    clip: auto;
+  }
+}
+
+/* Additional utility classes */
+@layer utilities {
+  .transition-custom {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .shadow-text-custom {
+    text-shadow: 0px 3px 1px rgba(65, 64, 66, 0.2);
+  }
+  
+  .bg-overlay {
+    background-color: rgba(49, 49, 51, 0.25);
   }
 }

@@ -1,205 +1,164 @@
 /*--------------------------------------------------------------
-# Layout
+# Layout - Tailwind Integration
 --------------------------------------------------------------*/
 
-html {
-  scroll-behavior: smooth;
-}
-
-// Backgrounds (use Bulma has-background-color) --------------------
-.bg-light-bis {
-  background: $color__light-bis;
-}
-
-.bg-success-dark {
-  background: $color__success-dark;
-}
-
-.has-background-primary-light {
-  p.is-family-primary.subtitle {
-    background: $color__primary !important;
-    color: $color__light !important;
+/* Use @layer base for fundamental styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-.has-background-candles {
-  background: url(../../assets/images/thereas-banner.jpg) center / cover
-      no-repeat fixed;
-}
-
-// Containers ------------------
-.container {
-  @include bp(desktop-1024) {
-    max-width: 1344px !important;
+/* Use @layer components for reusable layout components */
+@layer components {
+  
+  /* Background utilities - complement Tailwind backgrounds */
+  .bg-light-bis {
+    background: #FDF7F2;
   }
-  @include bp(desktop-1216) {
-    max-width: 1152px !important;
+  
+  .bg-success-dark {
+    background: #5E5E4A;
   }
-  @include bp(bulma-fullhd) {
-    max-width: 1344px !important;
+  
+  .has-background-primary-light p.is-family-primary.subtitle {
+    @apply bg-primary text-light;
   }
-}
-
-.container-sm {
-  margin: 0 auto;
-  max-width: $container-width--sm;
-}
-
-.container-m {
-  margin: 0 auto;
-  max-width: $container-width--m;
-}
-
-.content-wrapper {
-  padding: $base__space-unit;
-}
-
-.content-wrapper {
-  @include bp(tablet) {
-    padding: $space-unit--lg !important;
+  
+  .has-background-candles {
+    background: url(../../assets/images/thereas-banner.jpg) center / cover no-repeat fixed;
   }
-
-  @include bp(desktop-1920) {
-    padding: $space-unit--xxl !important;
+  
+  /* Container variations - extend Tailwind containers */
+  .container-sm {
+    @apply mx-auto;
+    max-width: 768px;
   }
-}
-
-.content-wrapper.pt-0 {
-  @include bp(tablet) {
-    padding: 0 $space-unit--lg $space-unit--lg !important;
+  
+  .container-m {
+    @apply mx-auto;
+    max-width: 900px;
   }
-
-  @include bp(desktop-1920) {
-    padding: 0 $space-unit--xxl $space-unit--xxl !important;
+  
+  /* Content wrapper with responsive padding */
+  .content-wrapper {
+    @apply p-6 md:p-10 desktop-1920:p-24;
   }
-}
-
-.content-wrapper.pb-0 {
-  @include bp(tablet) {
-    padding: $space-unit--lg $space-unit--lg 0 !important;
+  
+  .content-wrapper.pt-0 {
+    @apply pt-0 px-6 pb-6 md:pt-0 md:px-10 md:pb-10 desktop-1920:pt-0 desktop-1920:px-24 desktop-1920:pb-24;
   }
-
-  @include bp(desktop-1920) {
-    padding: $space-unit--xxl $space-unit--xxl 0 !important;
+  
+  .content-wrapper.pb-0 {
+    @apply pt-6 px-6 pb-0 md:pt-10 md:px-10 md:pb-0 desktop-1920:pt-24 desktop-1920:px-24 desktop-1920:pb-0;
   }
-}
-
-.main-navigation-container.content-wrapper,
-.social-menu-wrapper > .content-wrapper {
-  @include bp(tablet) {
-    padding: 0 $space-unit--lg !important;
+  
+  /* Navigation specific content wrapper */
+  .main-navigation-container.content-wrapper,
+  .social-menu-wrapper > .content-wrapper {
+    @apply px-6 py-0 md:px-10 desktop-1920:px-24;
   }
-
-  @include bp(desktop-1920) {
-    padding: 0 $space-unit--xxl !important;
+  
+  /* Fixed header spacing */
+  .fixed-header {
+    margin-top: 96px; /* mobile menu height */
+    
+    @media (min-width: 1080px) {
+      margin-top: 166px; /* desktop menu height + banner */
+    }
   }
-}
-
-.fixed-header {
-  margin-top: $mobile__menu-height;
-
-  @include bp($mobile__menu-bp) {
-    margin-top: 166px;
+  
+  /* Responsive visibility helpers */
+  .mobile-wrapper {
+    @apply block desktop-1080:hidden;
   }
-}
-
-// Helpers -----------------------
-.mobile-wrapper {
-  @include bp($mobile__menu-bp) {
-    display: none;
+  
+  .desktop-wrapper {
+    @apply hidden desktop-1080:block;
   }
-}
-
-.desktop-wrapper {
-  display: none;
-
-  @include bp($mobile__menu-bp) {
-    display: block;
+  
+  /* Utility classes that complement Tailwind */
+  .anchor {
+    @apply block relative invisible;
+    top: -96px; /* mobile menu height */
+    
+    @media (min-width: 1080px) {
+      top: -71px; /* desktop menu height */
+    }
   }
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.h-100 {
-  height: 100%;
-}
-
-.m-auto {
-  margin: 0 auto;
-}
-
-ul.list-style-none {
-  list-style: none !important;
-  margin: 0 !important;
-}
-
-.anchor {
-  display: block;
-  position: relative;
-  top: -$mobile__menu-height;
-  visibility: hidden;
-
-  @include bp($mobile__menu-bp) {
-    top: -$desktop__menu-height;
+  
+  .text-col {
+    @apply md:columns-2;
+  }
+  
+  /* Decorative elements */
+  .bg-vine {
+    background: url(../../assets/images/bg-watermelon-vine.svg) center / cover no-repeat;
+    @apply w-[95%];
+  }
+  
+  .decorative-line {
+    @apply w-full h-24;
+    background: url(../../assets/images/line.svg) center / contain no-repeat;
+  }
+  
+  /* Content spacing adjustments */
+  .content-wrapper:has(.ig-feed-wrapper) {
+    @apply pt-2 pb-4;
+  }
+  
+  /* Legacy container styles - remove after full Tailwind migration */
+  .container {
+    @apply desktop-1024:max-w-[1344px] desktop-1216:max-w-[1152px] desktop-1408:max-w-[1344px];
+  }
+  
+  /* Has equal height utility */
+  .has-equal-height {
+    @apply desktop-1024:flex desktop-1024:h-full;
   }
 }
 
-.text-col {
-  @include bp(tablet) {
-    column-count: 2;
+/* Utility classes */
+@layer utilities {
+  /* Accessibility */
+  .visually-hidden {
+    @apply absolute w-px h-px overflow-hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
   }
-}
-
-// Decorative Vine and Seeds -------------
-.bg-vine {
-  background: url(../../assets/images/bg-watermelon-vine.svg) center / cover
-    no-repeat;
-  width: 95%;
-}
-
-
-/* Source: https://a11y-101.com/development/skip-link */
-.visually-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.visually-hidden:focus {
-  clip: auto;
-  height: auto;
-  overflow: auto;
-  position: absolute;
-  width: auto;
-}
-
-
-.is-relative {
-  position: relative;
-}
-
-.decorative-line{
-    width: 100%;
-    height: 97px;
-    background: url(../../assets/images/line.svg) center / contain
-      no-repeat;
-}
-
-.line-through{
-  text-decoration: line-through;
-}
-
-.content-wrapper:has(.ig-feed-wrapper) {
-  padding-top: 0.5rem !important;
-  padding-bottom: 1rem !important;
-}
-
-// Woocommerce Sale mark
-.woocommerce span.onsale{
-  z-index: 3 !important;
+  
+  .visually-hidden:focus {
+    @apply relative w-auto h-auto overflow-auto;
+    clip: auto;
+  }
+  
+  /* Layout utilities */
+  .w-100 {
+    @apply w-full;
+  }
+  
+  .h-100 {
+    @apply h-full;
+  }
+  
+  .m-auto {
+    @apply mx-auto my-0;
+  }
+  
+  .list-style-none {
+    @apply list-none m-0;
+  }
+  
+  .is-relative {
+    @apply relative;
+  }
+  
+  .line-through {
+    @apply line-through;
+  }
+  
+  /* WooCommerce specific */
+  .woocommerce span.onsale {
+    z-index: 3 !important;
+  }
 }

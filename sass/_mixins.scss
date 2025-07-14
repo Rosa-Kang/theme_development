@@ -1,161 +1,86 @@
-// Rem output with px fallback
+/*--------------------------------------------------------------
+# Mixins - Essential Only (Tailwind Compatible)
+--------------------------------------------------------------*/
+
+/* 
+  Note: Most of these mixins should be replaced with Tailwind classes
+  Keep only essential mixins that can't be replaced with Tailwind
+*/
+
+/* Rem output with px fallback - Keep for legacy components */
 @mixin font-size($sizeValue: 1) {
   font-size: ($sizeValue * 16) * 1px;
   font-size: $sizeValue * 1rem;
 }
 
-// Center block
+/* Center block - Keep for specific legacy needs */
 @mixin center-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-// Flex
-@mixin flex($direction, $justify: unset, $align: unset) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: $direction;
-  -webkit-flex-direction: $direction;
-  -webkit-box-pack: $justify;
-  -ms-flex-pack: $justify;
-  -webkit-justify-content: $justify;
-  justify-content: $justify;
-  -webkit-box-align: $align;
-  -ms-flex-align: $align;
-  -webkit-align-items: $align;
-  align-items: $align;
-}
-
-@mixin row-cen {
-  @include flex(row, center, center);
-}
-
-@mixin col-cen {
-  @include flex(column, center, center);
-}
-
-@mixin font($family, $style, $weight) {
-  font-family: $family;
-  font-style: $style;
-  font-weight: $weight;
-}
-
-// Break points
+/* Break points - Essential for responsive design in SCSS */
 @mixin bp($point) {
-  $bp-mobile-320: '(min-width: #{$small-screen-320} )';
-  $bp-mobile: '(min-width: #{$small-screen} )';
-  $bp-mobile-414: '(min-width: #{$small-screen-414} )';
-  $bp-mobile-667: '(min-width: #{$small-screen-667} )';
-  $bp-mobile-736: '(min-width: #{$small-screen-736} )';
-  $bp-tablet: '(min-width: #{$medium-screen} )';
-  $bp-tablet-834: '(min-width: #{$medium-screen-834} )';
-  $bp-desktop-1022: '(min-width: #{$large-screen-1022} )';
-  $bp-desktop-1024: '(min-width: #{$large-screen-1024} )';
-  $bp-desktop-1080: '(min-width: #{$large-screen-1080} )';
-  $bp-desktop-1216: '(min-width: #{$large-screen-1216} )';
-  $bp-desktop-1280: '(min-width: #{$large-screen-1280} )';
-  $bp-desktop: '(min-width: #{$large-screen} )';
-  $bp-bulma-fullhd: '(min-width: #{$bulma-screen-1408} )';
-  $bp-desktop-1440: '(min-width: #{$large-screen-1440} )';
-  $bp-desktop-1600: '(min-width: #{$large-screen-1600} )';
-  $bp-desktop-1865: '(min-width: #{$large-screen-1865} )';
-  $bp-desktop-1920: '(min-width: #{$large-screen-1920} )';
-  $bp-desktop-2560: '(min-width: #{$large-screen-2560} )';
+  $bp-mobile-320: '(min-width: #{$small-screen-320})';
+  $bp-mobile: '(min-width: #{$small-screen})';
+  $bp-mobile-414: '(min-width: #{$small-screen-414})';
+  $bp-mobile-667: '(min-width: #{$small-screen-667})';
+  $bp-mobile-736: '(min-width: #{$small-screen-736})';
+  $bp-tablet: '(min-width: #{$medium-screen})';
+  $bp-tablet-834: '(min-width: #{$medium-screen-834})';
+  $bp-desktop-1022: '(min-width: #{$large-screen-1022})';
+  $bp-desktop-1024: '(min-width: #{$large-screen-1024})';
+  $bp-desktop-1080: '(min-width: #{$large-screen-1080})';
+  $bp-desktop-1216: '(min-width: #{$large-screen-1216})';
+  $bp-desktop-1280: '(min-width: #{$large-screen-1280})';
+  $bp-desktop: '(min-width: #{$large-screen})';
+  $bp-bulma-fullhd: '(min-width: #{$bulma-screen-1408})';
+  $bp-desktop-1440: '(min-width: #{$large-screen-1440})';
+  $bp-desktop-1600: '(min-width: #{$large-screen-1600})';
+  $bp-desktop-1865: '(min-width: #{$large-screen-1865})';
+  $bp-desktop-1920: '(min-width: #{$large-screen-1920})';
+  $bp-desktop-2560: '(min-width: #{$large-screen-2560})';
 
   @if $point == desktop-2560 {
-    @media #{$bp-desktop-2560} {
-      @content;
-    }
-  }
-  @if $point == desktop-1920 {
-    @media #{$bp-desktop-1920} {
-      @content;
-    }
-  }
-  @if $point == desktop-1865 {
-    @media #{$bp-desktop-1865} {
-      @content;
-    }
-  }
-  @if $point == desktop-1600 {
-    @media #{$bp-desktop-1600} {
-      @content;
-    }
-  }
-  @if $point == desktop-1440 {
-    @media #{$bp-desktop-1440} {
-      @content;
-    }
-  }
-  @if $point == bulma-fullhd {
-    @media #{$bp-bulma-fullhd} {
-      @content;
-    }
-  }
-  @if $point == desktop {
-    @media #{$bp-desktop} {
-      @content;
-    }
-  }
-  @if $point == desktop-1280 {
-    @media #{$bp-desktop-1280} {
-      @content;
-    }
-  }
-  @if $point == desktop-1408 {
-    @media #{$bp-bulma-fullhd} {
-      @content;
-    }
-  }
-  @if $point == desktop-1216 {
-    @media #{$bp-desktop-1216} {
-      @content;
-    }
-  }
-  @if $point == desktop-1080 {
-    @media #{$bp-desktop-1080} {
-      @content;
-    }
-  }
-  @if $point == desktop-1024 {
-    @media #{$bp-desktop-1024} {
-      @content;
-    }
-  }
-  @if $point == desktop-1022 {
-    @media #{$bp-desktop-1022} {
-      @content;
-    }
+    @media #{$bp-desktop-2560} { @content; }
+  } @else if $point == desktop-1920 {
+    @media #{$bp-desktop-1920} { @content; }
+  } @else if $point == desktop-1865 {
+    @media #{$bp-desktop-1865} { @content; }
+  } @else if $point == desktop-1600 {
+    @media #{$bp-desktop-1600} { @content; }
+  } @else if $point == desktop-1440 {
+    @media #{$bp-desktop-1440} { @content; }
+  } @else if $point == bulma-fullhd {
+    @media #{$bp-bulma-fullhd} { @content; }
+  } @else if $point == desktop {
+    @media #{$bp-desktop} { @content; }
+  } @else if $point == desktop-1280 {
+    @media #{$bp-desktop-1280} { @content; }
+  } @else if $point == desktop-1408 {
+    @media #{$bp-bulma-fullhd} { @content; }
+  } @else if $point == desktop-1216 {
+    @media #{$bp-desktop-1216} { @content; }
+  } @else if $point == desktop-1080 {
+    @media #{$bp-desktop-1080} { @content; }
+  } @else if $point == desktop-1024 {
+    @media #{$bp-desktop-1024} { @content; }
+  } @else if $point == desktop-1022 {
+    @media #{$bp-desktop-1022} { @content; }
   } @else if $point == tablet-834 {
-    @media #{$bp-tablet-834} {
-      @content;
-    }
+    @media #{$bp-tablet-834} { @content; }
   } @else if $point == tablet {
-    @media #{$bp-tablet} {
-      @content;
-    }
+    @media #{$bp-tablet} { @content; }
   } @else if $point == mobile-736 {
-    @media #{$bp-mobile-736} {
-      @content;
-    }
+    @media #{$bp-mobile-736} { @content; }
   } @else if $point == mobile-667 {
-    @media #{$bp-mobile-667} {
-      @content;
-    }
+    @media #{$bp-mobile-667} { @content; }
   } @else if $point == mobile-414 {
-    @media #{$bp-mobile-414} {
-      @content;
-    }
+    @media #{$bp-mobile-414} { @content; }
   } @else if $point == mobile {
-    @media #{$bp-mobile} {
-      @content;
-    }
+    @media #{$bp-mobile} { @content; }
   } @else if $point == mobile-320 {
-    @media #{$bp-mobile-320} {
-      @content;
-    }
+    @media #{$bp-mobile-320} { @content; }
   }
 }

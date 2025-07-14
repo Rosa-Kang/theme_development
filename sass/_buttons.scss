@@ -2,126 +2,98 @@
 # Buttons - Tailwind CSS Version
 --------------------------------------------------------------*/
 
-// Tailwind Component Layer
+/* Tailwind Component Layer */
 @layer components {
   
-  // Primary Buttons
+  /* Primary Buttons */
   .primary-button {
     @apply w-[270px] h-[45px] flex flex-row items-center justify-center;
     @apply bg-success text-dark border border-dark;
     @apply text-lg transition-all duration-300 ease-in-out;
-    
-    &:hover {
-      @apply bg-success-dark cursor-pointer;
-      
-      a {
-        @apply text-light;
-      }
-    }
+  }
+  
+  .primary-button:hover {
+    @apply bg-success-dark cursor-pointer;
+  }
+  
+  .primary-button:hover a {
+    @apply text-light;
   }
 
-  // Menu Buttons Container
+  /* Menu Buttons Container */
   #menu-buttons-menu {
     @apply flex flex-row justify-between items-center w-[220px];
   }
 
-  // Individual Menu Button
+  /* Individual Menu Button */
   .menu-button {
     @apply flex flex-row items-center justify-center h-[45px];
     @apply bg-dark text-lg border border-dark my-2 mx-auto;
     @apply transition-all duration-300 ease-in-out;
-    
-    @screen desktop-1216 {
-      @apply w-auto m-0;
-    }
-    
-    a {
-      @apply text-light leading-none whitespace-nowrap;
-    }
-    
-    &:hover {
-      @apply bg-success cursor-pointer;
-      
-      a {
-        @apply text-dark;
-      }
-    }
+  }
+  
+  .menu-button a {
+    @apply text-light leading-none whitespace-nowrap;
+  }
+  
+  .menu-button:hover {
+    @apply bg-success cursor-pointer;
+  }
+  
+  .menu-button:hover a {
+    @apply text-dark;
   }
 
-  // Desktop Menu Buttons
-  .desktop-menu-btn {
-    a,
-    a:visited {
-      @apply bg-success-dark text-light w-[130px] h-[33px];
-      @apply flex items-center justify-center rounded shadow-btn;
-    }
-    
-    a:hover {
-      @apply bg-success;
-    }
+  /* Desktop Menu Buttons */
+  .desktop-menu-btn a,
+  .desktop-menu-btn a:visited {
+    @apply bg-success-dark text-light w-[130px] h-[33px];
+    @apply flex items-center justify-center rounded shadow-btn;
+  }
+  
+  .desktop-menu-btn a:hover {
+    @apply bg-success;
   }
 
-  // Callout Buttons
+  /* Callout Buttons */
   .cta-btn-wrapper {
-    @apply text-center;
-    
-    @screen md {
-      @apply text-left;
-    }
+    @apply text-center md:text-left;
   }
 
-  // Flex Buttons
+  /* Flex Buttons */
   .rates-btns-wrapper {
-    @apply flex flex-col items-center;
-    
-    a.has-text-primary {
-      @apply pt-unit;
-      
-      @screen md {
-        @apply pt-0;
-      }
-    }
-    
-    @screen md {
-      @apply flex-row justify-between;
-    }
+    @apply flex flex-col items-center md:flex-row md:justify-between;
+  }
+  
+  .rates-btns-wrapper a.has-text-primary {
+    @apply pt-unit md:pt-0;
   }
 
-  // Disabled Button
+  /* Disabled Button */
   .button.disabled {
     @apply border border-info-dark text-info-dark text-lg rounded-full;
-    
-    &:hover {
-      @apply bg-transparent cursor-not-allowed;
-    }
+  }
+  
+  .button.disabled:hover {
+    @apply bg-transparent cursor-not-allowed;
   }
 
-  // Form Buttons
+  /* Form Buttons */
   div.wpforms-container-full .wpforms-form button[type='submit'],
   .button {
     @apply font-main uppercase bg-transparent min-w-[212px] mt-unit-xs;
   }
 
-  // Buttons Wrapper
+  /* Buttons Wrapper */
   .buttons-wrapper {
-    @apply flex flex-col items-center justify-center;
-    
-    @screen md {
-      @apply flex-row;
-    }
-    
-    div:last-child {
-      a {
-        @apply mt-unit;
-        
-        @screen md {
-          @apply mt-0 ml-unit-lg;
-        }
-      }
-    }
+    @apply flex flex-col items-center justify-center md:flex-row;
+  }
+  
+  .buttons-wrapper div:last-child a {
+    @apply mt-unit md:mt-0 md:ml-unit-lg;
   }
 
-  // Button style
+  /* Button styles */
   .btn-primary {
     @apply bg-primary text-primary-invert px-4 py-2 rounded;
     @apply hover:bg-primary-dark transition-all duration-300 ease-in-out;
@@ -143,7 +115,14 @@
   }
 }
 
-// utility class
+/* Responsive adjustments */
+@screen desktop-1216 {
+  .menu-button {
+    @apply w-auto m-0;
+  }
+}
+
+/* Utility classes */
 @layer utilities {
   .btn-shadow {
     @apply shadow-btn;

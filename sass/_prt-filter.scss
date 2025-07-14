@@ -1,241 +1,163 @@
 /*--------------------------------------------------------------
-# Filter
+# Filter - Tailwind Compatible
 --------------------------------------------------------------*/
 
-// When no results - no AJAX fallback
-.search-no-results {
-  .container.content-wrapper {
-    @include bp(tablet) {
-      display: flex;
+@layer components {
+  
+  /* When no results - no AJAX fallback */
+  .search-no-results {
+    .container.content-wrapper {
+      @apply md:flex;
     }
-  }
-
-  .wpc-posts-found {
-    position: absolute;
-    right: 0;
-    background-color: $color__light;
-  }
-
-  .wpc-filters-scroll-container {
-    width: 320px;
-
-    @include bp(desktop-1216) {
-      width: 350px;
+    
+    .wpc-posts-found {
+      @apply absolute right-0 bg-light;
     }
-
-    @include bp(desktop-1280) {
-      width: 370px;
-    }
-
-    .wpc-filters-widget-wrapper {
-      margin-left: unset !important;
-
-      .wpc-filters-section {
-        margin-left: 0;
-        margin-right: auto;
+    
+    .wpc-filters-scroll-container {
+      @apply w-80;
+      
+      @apply desktop-1216:w-[350px];
+      @apply desktop-1280:w-[370px];
+      
+      .wpc-filters-widget-wrapper {
+        margin-left: unset !important;
+        
+        .wpc-filters-section {
+          @apply ml-0 mr-auto;
+        }
       }
     }
   }
-}
-
-// Custom styling for Filter Everything plugin
-.wpc-filters-widget-wrapper {
-  background: $color__primary-light;
-  padding: $space-unit--xxs $space-unit--s $base__space-unit;
-
-  @include bp(tablet) {
-    padding: $space-unit--lg $base__space-unit;
-    margin-left: -3rem;
-  }
-
-  @include bp(desktop-1216) {
-    margin-left: -7rem;
-  }
-
-  @include bp(desktop-1280) {
-    margin-left: -10rem;
-  }
-
-  @include bp(desktop-1408) {
-    margin-left: unset;
-  }
-
-  .wpc-filters-section {
-    margin-left: 0;
-    margin-right: auto;
-    padding-left: $space-unit--s;
-    padding-right: $space-unit--s;
-
-    @include bp(tablet) {
-      padding-left: $base__space-unit;
+  
+  /* Custom styling for Filter Everything plugin */
+  .wpc-filters-widget-wrapper {
+    @apply bg-primary-light p-2 px-4 pb-6;
+    
+    @apply md:p-10 md:px-6 md:-ml-12;
+    @apply desktop-1216:-ml-28;
+    @apply desktop-1280:-ml-40;
+    @apply desktop-1408:ml-0;
+    
+    .wpc-filters-section {
+      @apply ml-0 mr-auto px-4;
+      
+      @apply md:pl-6;
+      @apply desktop-1216:w-80 desktop-1216:mr-0 desktop-1216:ml-auto desktop-1216:pl-6 desktop-1216:pr-10;
+      @apply desktop-1408:p-0 desktop-1408:px-6 desktop-1408:ml-0 desktop-1408:mx-auto;
     }
-
-    @include bp(desktop-1216) {
-      width: 320px;
-      margin-right: 0;
-      margin-left: auto;
-      padding-left: $base__space-unit;
-      padding-right: $space-unit--lg;
+    
+    .wpc-filters-ul-list {
+      margin-bottom: 0 !important;
+      max-height: unset !important;
+      overflow-y: unset !important;
+      
+      @apply desktop-1920:mb-6;
     }
-
-    @include bp(desktop-1408) {
-      padding: 0 $base__space-unit;
-      margin-left: unset;
-      margin: auto;
+    
+    .widget-title.wpc-filter-title {
+      @apply font-bold;
+    }
+    
+    a {
+      @apply text-dark;
     }
   }
-
-  .wpc-filters-ul-list {
-    margin-bottom: 0 !important;
-    max-height: unset !important;
-    overflow-y: unset !important;
-
-    @include bp(desktop-1920) {
-      margin-bottom: $base__space-unit !important;
+  
+  body .wpc-filters-widget-main-wrapper li.wpc-term-item {
+    @apply mb-4 last:mb-0;
+  }
+  
+  /* Hide empty filter categories */
+  .wpc-term-count-0 {
+    @apply hidden;
+  }
+  
+  /* Custom checkbox styling */
+  .wpc-filters-widget-wrapper input[type='checkbox'] {
+    @apply bg-transparent border-none opacity-100 inline-block relative;
+    background-image: url('../../assets/images/icon-heart-unclicked.svg') !important;
+    background-repeat: no-repeat !important;
+    height: 15px !important;
+    width: 17px !important;
+    top: 0px !important;
+    left: 0px !important;
+  }
+  
+  .wpc-filters-main-wrap input[type='checkbox']:after {
+    content: '' !important;
+    @apply opacity-0 inline-block relative border-none;
+    background-image: url('../../assets/images/icon-heart.svg') !important;
+    background-repeat: no-repeat !important;
+    height: 15px !important;
+    width: 17px !important;
+    top: -2px !important;
+    left: 0px !important;
+    transform: rotate(0deg) !important;
+    border-color: transparent !important;
+  }
+  
+  .wpc-filters-main-wrap input[type='checkbox']:checked:after {
+    @apply opacity-100;
+  }
+  
+  .wpc-filters-widget-wrapper input[type='checkbox']:checked {
+    @apply border-none;
+  }
+  
+  .wpc-filters-widget-main-wrapper input[type='checkbox']:after {
+    @apply border-none;
+  }
+  
+  .wpc-filters-widget-main-wrapper .wpc-checkbox-item.wpc-term-disabled > div > input[type='checkbox'],
+  .wpc-filters-widget-main-wrapper .wpc-checkbox-item.wpc-term-disabled > div > input[type='checkbox']:after,
+  .wpc-filters-widget-main-wrapper .wpc-term-count-0:not(.wpc-has-not-empty-children) input[type='checkbox']:after,
+  .wpc-filters-widget-main-wrapper .wpc-term-count-0:not(.wpc-has-not-empty-children) input[type='checkbox'] {
+    border-color: transparent !important;
+  }
+  
+  /* Mobile styling */
+  .filter-container {
+    @apply p-0;
+    
+    @apply md:px-[var(--columnGap)] md:py-3;
+    
+    .widget.widget_wpc_filters_widget .wpc-filters-widget-main-wrapper .wpc-filters-open-button-container .wpc-button-inner {
+      @apply p-4;
     }
   }
-
-  .widget-title.wpc-filter-title {
-    font-weight: $font__weight-bold;
+  
+  .wpc-open-close-filters-button,
+  a.wpc-open-close-filters-button,
+  body a.wpc-open-close-filters-button {
+    @apply block border-none bg-primary-light mb-0;
+    
+    @apply md:hidden;
   }
-
-  a {
-    color: $color__dark;
+  
+  .wpc-filters-button-text {
+    @apply font-accent text-2xl text-primary;
   }
-}
-
-body .wpc-filters-widget-main-wrapper li.wpc-term-item {
-  margin-bottom: $space-unit--s !important;
-
-  &:last-of-type {
-    margin-bottom: 0 !important;
+  
+  .wpc-button-inner {
+    @apply flex-row-reverse justify-between;
   }
-}
-
-/* Hide empty filter categories */
-.wpc-term-count-0 {
-  display: none !important;
-}
-
-/* Custom checkbox styling */
-.wpc-filters-widget-wrapper input[type='checkbox'] {
-  background: transparent !important;
-  border: none !important;
-  opacity: 1 !important;
-  display: inline-block !important;
-  background-image: url('../../assets/images/icon-heart-unclicked.svg') !important;
-  background-repeat: no-repeat !important;
-  height: 15px !important;
-  width: 17px !important;
-  position: relative !important;
-  top: 0px !important;
-  left: 0px !important;
-  border: none !important;
-}
-
-.wpc-filters-main-wrap input[type='checkbox']:after {
-  content: '' !important;
-  opacity: 0 !important;
-  display: inline-block !important;
-  background-image: url('../../assets/images/icon-heart.svg') !important;
-  background-repeat: no-repeat !important;
-  height: 15px !important;
-  width: 17px !important;
-  position: relative !important;
-  top: -2px !important;
-  left: 0px !important;
-  transform: rotate(0deg) !important;
-  border: none !important;
-  border-color: transparent !important;
-}
-
-.wpc-filters-main-wrap input[type='checkbox']:checked:after {
-  opacity: 1 !important;
-}
-
-.wpc-filters-widget-wrapper input[type='checkbox']:checked {
-  border: none !important;
-}
-
-.wpc-filters-widget-main-wrapper input[type='checkbox']:after {
-  border: none !important;
-}
-
-.wpc-filters-widget-main-wrapper
-  .wpc-checkbox-item.wpc-term-disabled
-  > div
-  > input[type='checkbox'],
-.wpc-filters-widget-main-wrapper
-  .wpc-checkbox-item.wpc-term-disabled
-  > div
-  > input[type='checkbox']:after,
-.wpc-filters-widget-main-wrapper
-  .wpc-term-count-0:not(.wpc-has-not-empty-children)
-  input[type='checkbox']:after,
-.wpc-filters-widget-main-wrapper
-  .wpc-term-count-0:not(.wpc-has-not-empty-children)
-  input[type='checkbox'] {
-  border-color: transparent !important;
-}
-
-/* Mobile styling */
-.filter-container {
-  padding: 0 !important;
-
-  @include bp(tablet) {
-    padding-left: var(--columnGap) !important;
-    padding-right: var(--columnGap) !important;
-    padding-top: $space-unit--xs !important;
-    padding-bottom: $space-unit--xs !important;
+  
+  .wpc-icon-html-wrapper {
+    @apply mr-0;
+    
+    span {
+      @apply bg-primary;
+    }
   }
-
-  .widget.widget_wpc_filters_widget
-    .wpc-filters-widget-main-wrapper
-    .wpc-filters-open-button-container
-    .wpc-button-inner {
-    padding: $space-unit--s;
+  
+  span.wpc-icon-line-1:after,
+  span.wpc-icon-line-2:after,
+  span.wpc-icon-line-3:after {
+    @apply bg-primary-light border-primary;
   }
-}
-
-.wpc-open-close-filters-button,
-a.wpc-open-close-filters-button,
-body a.wpc-open-close-filters-button {
-  display: block !important;
-  border: none !important;
-  background-color: $color__primary-light !important;
-  margin-bottom: 0 !important;
-
-  @include bp(tablet) {
-    display: none !important;
+  
+  .wpc-filters-widget-main-wrapper ul.wpc-filters-ul-list {
+    @apply pl-0;
   }
-}
-
-.wpc-filters-button-text {
-  font-family: $font__accent !important;
-  font-size: 25px !important;
-  color: $color__primary !important;
-}
-
-.wpc-button-inner {
-  flex-direction: row-reverse !important;
-  justify-content: space-between;
-}
-
-.wpc-icon-html-wrapper {
-  margin-right: 0 !important;
-
-  span {
-    background: $color__primary !important;
-  }
-}
-
-span.wpc-icon-line-1:after,
-span.wpc-icon-line-2:after,
-span.wpc-icon-line-3:after {
-  background-color: $color__primary-light !important;
-  border-color: $color__primary !important;
-}
-
-.wpc-filters-widget-main-wrapper ul.wpc-filters-ul-list {
-  padding-left: 0 !important;
 }

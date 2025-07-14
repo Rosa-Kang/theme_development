@@ -1,17 +1,154 @@
 /*--------------------------------------------------------------
-# Widgets
+# Widgets - Tailwind Compatible
 --------------------------------------------------------------*/
 
-.widget {
-	margin: 0 0 $base__space-unit;
-
-	/* Make sure select elements fit in widgets. */
-	select {
-		max-width: 100%;
-	}
-}
-
-/* Search widget. */
-.widget_search .search-submit {
-	display: none;
+@layer components {
+  
+  .widget {
+    @apply mb-6;
+    
+    /* Make sure select elements fit in widgets */
+    select {
+      @apply max-w-full;
+    }
+  }
+  
+  /* Search widget */
+  .widget_search .search-submit {
+    @apply hidden;
+  }
+  
+  /* Widget title styling */
+  .widget-title {
+    @apply font-accent font-bold text-dark text-xl mb-4;
+  }
+  
+  /* Widget content styling */
+  .widget-content {
+    @apply text-dark text-base leading-6;
+    
+    ul {
+      @apply list-none m-0 p-0;
+      
+      li {
+        @apply mb-2 pb-2 border-b border-gray-200 last:border-b-0;
+        
+        a {
+          @apply text-dark no-underline hover:text-primary transition-colors;
+        }
+      }
+    }
+  }
+  
+  /* Recent posts widget */
+  .widget_recent_entries {
+    ul li {
+      @apply flex flex-col;
+      
+      a {
+        @apply font-medium;
+      }
+      
+      .post-date {
+        @apply text-sm text-gray-600 mt-1;
+      }
+    }
+  }
+  
+  /* Categories widget */
+  .widget_categories {
+    ul li {
+      @apply flex justify-between items-center;
+      
+      .post-count {
+        @apply text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded;
+      }
+    }
+  }
+  
+  /* Tag cloud widget */
+  .widget_tag_cloud {
+    .tagcloud {
+      @apply flex flex-wrap gap-2;
+      
+      a {
+        @apply inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm;
+        @apply hover:bg-primary hover:text-white transition-colors;
+        text-decoration: none !important;
+      }
+    }
+  }
+  
+  /* Calendar widget */
+  .widget_calendar {
+    table {
+      @apply w-full border-collapse;
+      
+      caption {
+        @apply font-bold text-center mb-2;
+      }
+      
+      th,
+      td {
+        @apply text-center p-2 border border-gray-200;
+      }
+      
+      th {
+        @apply bg-gray-100 font-semibold;
+      }
+      
+      td a {
+        @apply text-primary font-bold no-underline hover:underline;
+      }
+    }
+  }
+  
+  /* Archive widget */
+  .widget_archive {
+    select {
+      @apply w-full p-2 border border-gray-300 rounded;
+    }
+  }
+  
+  /* Meta widget */
+  .widget_meta {
+    ul li a {
+      @apply flex items-center;
+      
+      &:before {
+        content: "→";
+        @apply mr-2 text-primary;
+      }
+    }
+  }
+  
+  /* RSS widget */
+  .widget_rss {
+    .rss-date {
+      @apply text-sm text-gray-600 italic;
+    }
+    
+    .rssSummary {
+      @apply mt-2 text-sm text-gray-700;
+    }
+  }
+  
+  /* Custom HTML widget */
+  .widget_custom_html {
+    .textwidget {
+      @apply text-base leading-6;
+      
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-accent font-bold text-dark mb-3;
+      }
+      
+      p {
+        @apply mb-4;
+      }
+      
+      a {
+        @apply text-primary underline hover:text-primary-dark;
+      }
+    }
+  }
 }
