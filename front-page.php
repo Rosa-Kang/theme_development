@@ -6,7 +6,7 @@
  */
 get_header(); ?> 
 
-<?php get_template_part( 'template-parts/hero/hero-slider' ); ?>
+<?php get_template_part( 'template-parts/hero/hero' ); ?>
 <?php get_template_part( 'template-parts/callout/callout-image-left' ); ?>
 <?php get_template_part( 'template-parts/callout/callout-image-right' ); ?>
 <?php get_template_part( 'template-parts/slider/best-sellers' ); ?>
