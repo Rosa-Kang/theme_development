@@ -36,13 +36,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Essential variables only (no mixins) */
+/* Essential variables only  */
 @import 'variables';
 
 /* Tailwind custom components and utilities */
 @import 'tailwind-custom';
 
-/* Core theme styles (Tailwind compatible, no mixins) */
+/* Core theme styles (Tailwind compatible) */
 @import 'layout';
 @import 'fonts';
 @import 'typography';
